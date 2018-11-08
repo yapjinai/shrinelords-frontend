@@ -1,25 +1,33 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Doors from './components/Doors';
+import Shrine from './containers/Shrine';
+import Background from './components/Background';
+
+import './css/App.css'
 
 class App extends Component {
   render() {
+    const shrineTemp = {
+      items: [
+        {
+          id: 1,
+          name: 'flower'
+        },
+        {
+          id: 2,
+          name: 'candle'
+        }
+      ]
+    }
+
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        App
+        <Doors />
+        <Shrine
+          shrine={shrineTemp}
+        />
+        <Background />
       </div>
     );
   }
