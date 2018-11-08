@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Item from '../components/Item'
+import '../assets/css/Shrine.css'
 
 class Shrine extends Component {
   displayItems = () => {
@@ -16,7 +17,6 @@ class Shrine extends Component {
   render() {
     return (
       <div className="Shrine">
-        Shrine
         {this.displayItems()}
       </div>
     );
