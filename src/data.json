@@ -3,7 +3,7 @@
     {
       "id": 1,
       "name": "flower",
-      "image": "https://png.pngtree.com/element_origin_min_pic/16/07/08/18577f8011d766e.jpg",
+      "image": "http://localhost:3000/assets/img/flower-01.png",
       "style": {
         "top": "20%",
         "left": "50%"
@@ -12,9 +12,9 @@
     {
       "id": 2,
       "name": "candle",
-      "image": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcTMjtuafjEsBmumsIICpPwMbAEF-XtZMh3-3WLrMDiFtYiU60LYOsUAV1s8IPl06JXXJfe7KrYW9luXgS2ic9DDOSiJl28DjGHu6CieKGaX3iNQenay2abvEw&usqp=CAE",
+      "image": "http://localhost:3000/assets/img/candle-02.png",
       "style": {
-        "top": "80%",
+        "top": "60%",
         "left": "10%"
       }
     }
