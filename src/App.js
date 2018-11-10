@@ -4,19 +4,47 @@ import Shrine from './containers/Shrine';
 import Background from './components/Background';
 
 import './assets/css/App.css'
-import shrinetemp from './data.json'
+// import shrinetemp from './data.json'
 
 class App extends Component {
+  constructor() {
+    super()
+    this.state = {
+      shrine: {}
+    }
+  }
+
   render() {
     return (
       <div className="App">
         <Doors />
         <Shrine
-          shrine={shrinetemp}
+          updateCoordinates={this.updateCoordinates}
+          shrine={this.state.shrine}
         />
         <Background />
       </div>
     );
+  }
+
+  componentDidMount() {
+    this.loadShrine()
+  }
+
+  //////////////////////////////////
+
+  loadShrine = () => {
+    fetch('http://localhost:3000/api/v1/shrines/3')
+    .then(res => res.json())
+    .then(shrine => {
+      this.setState({
+        shrine: shrine
+      })
+    })
+  }
+
+  updateCoordinates = (posX, posY) => {
+
   }
 }
 
