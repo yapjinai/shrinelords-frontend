@@ -43,8 +43,30 @@ class App extends Component {
     })
   }
 
-  updateCoordinates = (posX, posY) => {
-
+  updateCoordinates = (offeringId, posX, posY) => {
+    console.log(offeringId);
+    fetch(`http://localhost:3000/api/v1/offerings/${offeringId}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+        style: {
+          top: posY,
+          left: posX
+        }
+      })
+    })
+    .then(this._checkStatus)
+    .then(console.log)
+    //
+    // .then(r => r.json())
+    // .then(console.log)
+    // .then(() => {
+    //   console.log('patched');
+    //   this.loadShrine()
+    // })
   }
 }
 
