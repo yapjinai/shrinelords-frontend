@@ -4,7 +4,10 @@ import Shrine from './containers/Shrine';
 import Background from './components/Background';
 
 import './assets/css/App.css'
-// import shrinetemp from './data.json'
+
+const apiURL = 'http://localhost:3000'
+const shrineId = 6
+
 
 class App extends Component {
   constructor() {
@@ -34,7 +37,7 @@ class App extends Component {
   //////////////////////////////////
 
   loadShrine = () => {
-    fetch('http://localhost:3000/api/v1/shrines/3')
+    fetch(`${apiURL}/api/v1/shrines/${shrineId}`)
     .then(res => res.json())
     .then(shrine => {
       this.setState({
@@ -45,7 +48,7 @@ class App extends Component {
 
   updateCoordinates = (offeringId, posX, posY) => {
     console.log(offeringId);
-    fetch(`http://localhost:3000/api/v1/offerings/${offeringId}`, {
+    fetch(`${apiURL}/api/v1/offerings/${offeringId}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
