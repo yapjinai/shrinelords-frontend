@@ -1,22 +1,22 @@
 {
-  "items": [
-    {
-      "id": 1,
-      "name": "flower",
-      "image": "http://localhost:3000/assets/img/flower-01.png",
-      "style": {
-        "top": "20%",
-        "left": "50%"
-      }
-    },
-    {
-      "id": 2,
-      "name": "candle",
-      "image": "http://localhost:3000/assets/img/candle-02.png",
-      "style": {
-        "top": "60%",
-        "left": "10%"
-      }
+      "offerings": [
+        {
+          "id": 1,
+          "name": "flower",
+          "image": "http://localhost:3001/assets/img/flower-01.png",
+          "style": {
+            "top": "20%",
+            "left": "50%"
+          }
+        },
+        {
+          "id": 2,
+          "name": "candle",
+          "image": "http://localhost:3001/assets/img/candle-02.png",
+          "style": {
+            "top": "60%",
+            "left": "10%"
+          }
+        }
+      ]
     }
-  ]
-}
