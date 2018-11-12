@@ -1,8 +1,9 @@
 .EditbarItem {
-  position: absolute;
+  margin: 10px;
+  position: relative;
+  max-height: 10vh;
   overflow: hidden;
-  flex: 1;
-  border: 2px solid yellow;
+  flex-basis: 1;
 }
 
 /*# sourceMappingURL=EditbarItem.css.map */

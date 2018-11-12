@@ -17,7 +17,6 @@ export default class Editbar extends Component {
       return (
         <div className="Editbar" onClick={this.toggle}>
           {this.displayItems()}
-          {this.displayItems()}
           {this.displayToolbar()}
         </div>
       )}

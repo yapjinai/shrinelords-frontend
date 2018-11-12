@@ -1,7 +1,9 @@
+$editbar-width: 10vw;
+
 .Editbar {
   position: fixed;
   height: 75vh;
-  width: 75vw;
+  width: $editbar-width;
   z-index: 1;
   top: 10%;
   left: 0%;
@@ -17,12 +19,13 @@
   align-items: flex-start;
   align-content: flex-start;
 
-  overflow: hidden;
+  // overflow: hidden;
 
   // border: 1px solid black;
   border-radius: 8px;
 }
 
 .Editbar.Editbar-hidden {
-  left: -74vw;
+  // left: -74vw;
+  left: 0 - ($editbar-width - 1)
 }

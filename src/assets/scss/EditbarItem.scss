@@ -1,13 +1,14 @@
 .EditbarItem {
-  position: absolute;
+  margin: 10px;
+  position: relative;
   // max-width: 10vw;
-  // height: 10vw;
+  max-height: 10vh;
   // width: auto;
   overflow: hidden;
 
-  flex: 1;
+  flex-basis: 1;
 
-  border: 2px solid yellow;
+  // border: 2px solid yellow;
 
   // img {
     // position: relative;
