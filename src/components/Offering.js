@@ -93,8 +93,8 @@ class Offering extends Component {
   }
 
   handleMouseUp = (e) => {
-    const newX = parseInt(this.state.elmnt.style.left)
-    const newY = parseInt(this.state.elmnt.style.top)
+    const newX = `"${Math.floor(parseInt(this.state.elmnt.style.left) / window.innerWidth * 100)}%"`
+    const newY = `"${Math.floor(parseInt(this.state.elmnt.style.top) / window.innerHeight * 100)}%"`
     // stop moving when mouse button is released:
     document.onmouseup = null;
     document.onmousemove = null;
@@ -102,7 +102,7 @@ class Offering extends Component {
   }
 
   ////////////////////////////////////////////////////
-  
+
   getResizedStyle = () => {
     const newStyle = {...this.state.style}
     if (this.state.elmnt) {
