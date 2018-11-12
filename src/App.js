@@ -51,7 +51,6 @@ class App extends Component {
   }
 
   updateCoordinates = (offeringId, posX, posY) => {
-    // console.log(offeringId);
     fetch(`${apiURL}/api/v1/offerings/${offeringId}`, {
       method: 'PATCH',
       headers: {
@@ -62,15 +61,6 @@ class App extends Component {
         style: `{"top":${posY},"left":${posX}}`
       })
     })
-    .then(this._checkStatus)
-    .then(console.log)
-    //
-    // .then(r => r.json())
-    // .then(console.log)
-    // .then(() => {
-    //   console.log('patched');
-    //   this.loadShrine()
-    // })
   }
 }
 
