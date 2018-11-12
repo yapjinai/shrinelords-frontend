@@ -3,7 +3,7 @@ import '../assets/css/LeftbarItem.css'
 
 const LeftbarItem = (props) => {
   return(
-    <div class="leftitem">
+    <div className="leftitem">
       <img src={props.item.image}></img>
     </div>
   )
