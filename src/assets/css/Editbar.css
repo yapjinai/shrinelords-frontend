@@ -4,18 +4,17 @@
   width: 20vw;
   z-index: 1;
   top: 10vh;
-  left: 0;
+  left: -18vw;
   background-image: radial-gradient(#ad8fa3, #394768);
   transition: 0.75s;
-  /* 0.5 second transition effect to slide in the sidenav */
   border-radius: 8px;
 }
 .Editbar div {
   margin: 5%;
 }
 
-.Editbar.Editbar-hidden {
-  left: -18vw;
+.Editbar:hover {
+  left: 0;
 }
 
 /*# sourceMappingURL=Editbar.css.map */

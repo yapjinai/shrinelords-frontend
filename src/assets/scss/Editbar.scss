@@ -6,9 +6,9 @@ $editbar-width: 20vw;
   width: $editbar-width;
   z-index: 1;
   top: 10vh;
-  left: 0;
+  left: 0 - ($editbar-width - 2);
   background-image: radial-gradient(#ad8fa3, #394768);
-  transition: .75s; /* 0.5 second transition effect to slide in the sidenav */
+  transition: .75s;
 
   // overflow: hidden;
 
@@ -20,7 +20,7 @@ $editbar-width: 20vw;
   }
 }
 
-.Editbar.Editbar-hidden {
+.Editbar:hover {
   // left: -74vw;
-  left: 0 - ($editbar-width - 2)
+  left: 0;
 }
