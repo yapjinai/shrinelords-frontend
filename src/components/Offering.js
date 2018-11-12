@@ -101,10 +101,12 @@ class Offering extends Component {
   }
 
   handleMouseUp = (e) => {
+    const newX = parseInt(this.state.elmnt.style.left)
+    const newY = parseInt(this.state.elmnt.style.top)
     // stop moving when mouse button is released:
     document.onmouseup = null;
     document.onmousemove = null;
-    this.props.updateCoordinates(this.props.offering.id, this.state.posX, this.state.posY)
+    this.props.updateCoordinates(this.props.offering.id, newX, newY)
   }
 
   ////////////////////////////////////////////////////

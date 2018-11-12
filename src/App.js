@@ -8,7 +8,7 @@ import Leftbar from './components/Leftbar';
 import './assets/css/App.css'
 
 const apiURL = 'http://localhost:3000'
-const shrineId = 1
+const shrineId = 4
 
 
 class App extends Component {
@@ -59,14 +59,11 @@ class App extends Component {
         'Accept': 'application/json'
       },
       body: JSON.stringify({
-        style: {
-          top: posY,
-          left: posX
-        }
+        style: `{"top":${posY},"left":${posX}}`
       })
     })
     .then(this._checkStatus)
-    // .then(console.log)
+    .then(console.log)
     //
     // .then(r => r.json())
     // .then(console.log)
