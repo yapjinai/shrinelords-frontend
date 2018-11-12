@@ -6,7 +6,7 @@ import Background from './components/Background';
 import './assets/css/App.css'
 
 const apiURL = 'http://localhost:3000'
-const shrineId = 6
+const shrineId = 1
 
 
 class App extends Component {
@@ -47,7 +47,7 @@ class App extends Component {
   }
 
   updateCoordinates = (offeringId, posX, posY) => {
-    console.log(offeringId);
+    // console.log(offeringId);
     fetch(`${apiURL}/api/v1/offerings/${offeringId}`, {
       method: 'PATCH',
       headers: {
@@ -62,7 +62,7 @@ class App extends Component {
       })
     })
     .then(this._checkStatus)
-    .then(console.log)
+    // .then(console.log)
     //
     // .then(r => r.json())
     // .then(console.log)
