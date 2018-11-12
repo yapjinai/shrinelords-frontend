@@ -17,6 +17,7 @@ class App extends Component {
     super()
     this.state = {
       shrine: {},
+      offerings: [],
       items: [],
       mouseMode: 'select'
     }
@@ -29,12 +30,14 @@ class App extends Component {
         <Editbar
           items={this.state.items}
           updateMouseMode={this.updateMouseMode}
+          addOffering={this.addOffering}
         />
         <Navbar />
         <Doors />
         <Shrine
           updateCoordinates={this.updateCoordinates}
           shrine={this.state.shrine}
+          offerings={this.state.offerings}
         />
         <Floor />
         <Background />
@@ -54,7 +57,8 @@ class App extends Component {
     .then(res => res.json())
     .then(shrine => {
       this.setState({
-        shrine: shrine
+        shrine: shrine,
+        offerings: shrine.offerings
       })
     })
   }
@@ -67,6 +71,21 @@ class App extends Component {
         items: items
       })
     })
+  }
+
+  addOffering = (item) => {
+    fetch(`${apiURL}/api/v1/offerings`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+        shrine_id: this.state.shrine.id,
+        item_id: item.id,
+        style: `{"top":"40%","left":"40%"}`
+      })
+    }).then(this.loadShrine())
   }
 
   updateCoordinates = (offeringId, posX, posY) => {
