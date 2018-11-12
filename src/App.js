@@ -17,14 +17,19 @@ class App extends Component {
     super()
     this.state = {
       shrine: {},
-      items: []
+      items: [],
+      mouseMode: 'select'
     }
   }
 
   render() {
+    console.log(this.state.mouseMode);
     return (
       <div className="App">
-        <Editbar items={this.state.items}/>
+        <Editbar
+          items={this.state.items}
+          updateMouseMode={this.updateMouseMode}
+        />
         <Navbar />
         <Doors />
         <Shrine
@@ -74,6 +79,12 @@ class App extends Component {
       body: JSON.stringify({
         style: `{"top":${posY},"left":${posX}}`
       })
+    })
+  }
+
+  updateMouseMode = (mode) => {
+    this.setState({
+      mouseMode: mode
     })
   }
 }

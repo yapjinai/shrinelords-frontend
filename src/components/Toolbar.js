@@ -13,12 +13,46 @@ class Toolbar extends Component {
           <li>
             <button>Bring forwards</button>
           </li>
-          <li>
-            <button>Send backwards</button>
-          </li>
+
         </ul>
       </div>
     )
+  }
+
+  //////////////////////////
+
+  displayMouseModeButtons = () => {
+    const mouseModes = [
+      {
+        mode: 'delete',
+        buttonName: 'Delete'
+      },
+      {
+        mode: 'forwards',
+        buttonName: 'Bring forwards'
+      },
+      {
+        mode: 'backwards',
+        buttonName: 'Send backwards'
+      }
+    ]
+    return mouseModes.map(m => {
+      return (
+        <li>
+          <button
+            name={m.mode}
+            onClick={this.handleClick}
+          >
+            {m.buttonName}
+          </button>
+        </li>
+      )
+    })
+  }
+
+  handleClick = (e) => {
+    e.preventDefault()
+    this.props.updateMouseMode(e.target.name)
   }
 }
 

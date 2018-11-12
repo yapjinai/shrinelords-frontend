@@ -10,7 +10,9 @@ export default class Editbar extends Component {
         <Itembar
           items={this.props.items}
         />
-        <Toolbar />
+        <Toolbar
+          updateMouseMode={this.props.updateMouseMode}
+        />
       </div>
     )
   }
