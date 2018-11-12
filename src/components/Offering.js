@@ -111,8 +111,8 @@ class Offering extends Component {
       const ratio = offsetTop / windowHeight
 
       const maxWidth = parseInt(this.state.item.size)
-      const m = maxWidth - 100
-      const y = m * ratio + 100
+      const m = maxWidth - 75
+      const y = m * ratio + 75
 
       const newwidth = Math.floor(y)
       const newwidthString = `${newwidth}px`
