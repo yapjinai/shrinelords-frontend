@@ -9,8 +9,7 @@ const EditbarItem = (props) => {
         className="EditbarItem"
         src={props.item.image}
         alt={props.item.name}
-      >
-      </img>
+      />
   )
 }
 

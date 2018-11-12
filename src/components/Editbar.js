@@ -8,7 +8,7 @@ export default class Editbar extends Component {
   constructor() {
     super()
     this.state = {
-      shown: true
+      shown: false
     }
   }
 

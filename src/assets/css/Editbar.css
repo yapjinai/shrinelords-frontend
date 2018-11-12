@@ -5,10 +5,10 @@
   z-index: 1;
   top: 10%;
   left: 0%;
-  background-image: radial-gradient(#7b8266, #394768);
+  background-image: radial-gradient(#ad8fa3, #394768);
   overflow-x: hidden;
   /* Disable horizontal scroll */
-  padding-top: 20px;
+  padding: 20px;
   /* Place content 60px from the top */
   transition: 0.75s;
   /* 0.5 second transition effect to slide in the sidenav */
@@ -20,7 +20,7 @@
 }
 
 .Editbar.Editbar-hidden {
-  left: -9vw;
+  left: -9.75vw;
 }
 
 /*# sourceMappingURL=Editbar.css.map */
