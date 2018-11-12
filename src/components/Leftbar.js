@@ -4,19 +4,30 @@ import '../assets/css/Leftbar.css'
 export default class Leftbar extends Component {
 
   state = {
-    shown: false
+    className: 'hidden-leftbar'
   }
 
-  move = () => {
-    this.setState({shown: !this.state.shown})
+  toggle = () => {
+    let newState
+    if (this.state.className === 'hidden-leftbar') {
+      newState = 'leftbar'
+    }
+    else {
+      newState = 'hidden-leftbar'
+    }
+    this.setState({
+      className: newState
+    })
   }
 
   render(){
-    if(this.state.shown){
-      return <div className="leftbar" onMouseOut={this.move}></div>
-      }
-    else {
-      return <div className="hidden-leftbar" onMouseOver={this.move}></div>
-      }
+    return (
+      <div
+        className={this.state.className}
+        onMouseOver={this.toggle}
+        onMouseOut={this.toggle}
+      >
+      </div>
+    )
   }
 }
