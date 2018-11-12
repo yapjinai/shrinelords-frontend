@@ -1,11 +1,9 @@
 .Offering {
   position: absolute;
   max-width: 500px;
-  border: 2px solid blue;
 }
 .Offering img {
   width: 100%;
-  border: 2px solid yellow;
 }
 
 /*# sourceMappingURL=Offering.css.map */

@@ -2,26 +2,26 @@ import React, { Component } from 'react'
 import '../assets/css/Offering.css'
 
 class Offering extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
       posX: 0,
       posY: 0,
       changeX: 0,
       changeY: 0,
       elmnt: null,
-      item: {}
+      style: JSON.parse(this.props.offering.style),
+      item: {},
     }
   }
 
-  // style={this.state.itemStyle}
   render() {
     const offering = this.props.offering
     return (
       <div
         className="Offering"
         id={`item-${offering.id}`}
-        style={JSON.parse(this.props.offering.style)}
+        style={this.getResizedStyle()}
         onMouseDown={this.handleMouseDown}
       >
         <img
@@ -40,6 +40,36 @@ class Offering extends Component {
   }
 
 ////////////////////////////////////////////////////////////////////////
+  setMaxWidthStyle = () => {
+    if (this.state.item && !this.state.style.maxWidth) {
+      const newStyle = {...this.state.style}
+      newStyle.maxWidth = this.state.item.size
+      this.setState({
+        style: newStyle
+      })
+    }
+  }
+
+  //EXPERIMENTAL: ADD perspective
+  getResizedStyle = () => {
+    const newStyle = {...this.state.style}
+    if (this.state.elmnt) {
+      const offsetTop = this.state.elmnt.offsetTop
+      const windowHeight = window.innerHeight
+      const ratio = offsetTop / windowHeight
+
+      const maxWidth = parseInt(this.state.item.size)
+      const m = maxWidth - 50
+      const y = m * ratio + 50
+
+      const newwidth = Math.floor(y)
+      const newwidthString = `${newwidth}px`
+      newStyle.maxWidth = newwidthString
+    }
+    return newStyle
+  }
+
+////////////////////////////////////////////////////////////////////////
 
   handleMouseDown = (e) => {
     e = e || window.event;
@@ -54,21 +84,7 @@ class Offering extends Component {
     document.onmousemove = this.handleMouseMove;
   }
 
-  // EXPERIMENTAL: add perspective
-  // const offsetTop = this.state.elmnt.offsetTop
-  // const offsetTop = e.clientY
-  // const windowHeight = window.innerHeight
-  // const ratio = offsetTop / windowHeight
-  //
-  // const width = parseInt(this.state.itemStyle.width)
-  // const newwidth = Math.floor(width * ratio)
-  // const newwidthString = `${newwidth}px`
-  // const style = {width: newwidthString}
-  //////////////////////////////////
-  // EXPERIMENTAL: add perspective
-  // itemStyle: style
   handleMouseMove = (e) => {
-
     e = e || window.event;
     e.preventDefault();
     this.setState({
@@ -76,13 +92,12 @@ class Offering extends Component {
       changeY: this.state.posY - e.clientY,
       posX: e.clientX,
       posY: e.clientY,
+      style: this.getResizedStyle()
     })
 
     const elmnt = this.state.elmnt
     elmnt.style.top = (this.state.elmnt.offsetTop - this.state.changeY) + "px";
     elmnt.style.left = (this.state.elmnt.offsetLeft - this.state.changeX) + "px";
-
-    console.log(elmnt.firstChild);
   }
 
   handleMouseUp = (e) => {
@@ -100,7 +115,7 @@ class Offering extends Component {
     .then(offering => {
       this.setState({
         item: offering.item
-      })
+      }, () => this.setMaxWidthStyle())
     })
   }
 
