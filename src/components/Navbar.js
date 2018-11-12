@@ -1,11 +1,13 @@
-import React, { Component,PureComponent } from 'react'
+import React, { Component } from 'react'
 import '../assets/css/Navbar.css'
 
-const Navbar = () => {
+class Navbar extends Component {
 
-  return(
-    <div className="navbar"></div>
-  )
+  render() {
+    return(
+      <div className="navbar"></div>
+    )
+  }
 }
 
 export default Navbar

@@ -1,14 +1,14 @@
-import React, { Component,PureComponent } from 'react'
+import React, { Component } from 'react'
 import '../assets/css/Editbar.css'
 import EditbarItem from './EditbarItem'
-import Toolbar from './Toolbar'
+// import Toolbar from './Toolbar'
 
 export default class Editbar extends Component {
 
   constructor() {
     super()
     this.state = {
-      className: 'hidden-editbar'
+      shown: true
     }
   }
 
@@ -17,12 +17,18 @@ export default class Editbar extends Component {
       return (
         <div className="Editbar" onClick={this.toggle}>
           {this.displayItems()}
-          <br />
+          {this.displayItems()}
           {this.displayToolbar()}
         </div>
       )}
     else {
-      return <div className="hidden-editbar" onClick={this.toggle}></div>
+      return (
+        <div
+          className="Editbar Editbar-hidden"
+          onClick={this.toggle}
+        >
+        </div>
+      )
       }
   }
 

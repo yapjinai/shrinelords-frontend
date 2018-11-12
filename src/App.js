@@ -16,7 +16,8 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
-      shrine: {}
+      shrine: {},
+      items: []
     }
   }
 

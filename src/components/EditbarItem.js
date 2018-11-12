@@ -1,11 +1,16 @@
 import React from 'react'
 import '../assets/css/EditbarItem.css'
+// <div className="EditbarItem">
+// </div>
 
 const EditbarItem = (props) => {
   return(
-    <div className="EditbarItem">
-      <img src={props.item.image}></img>
-    </div>
+      <img
+        className="EditbarItem"
+        src={props.item.image}
+        alt={props.item.name}
+      >
+      </img>
   )
 }
 
