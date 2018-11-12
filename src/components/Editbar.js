@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import '../assets/css/Editbar.css'
-import EditbarItem from './EditbarItem'
-// import Toolbar from './Toolbar'
+import Itembar from './Itembar'
+import Toolbar from './Toolbar'
 
 export default class Editbar extends Component {
 
@@ -16,8 +16,10 @@ export default class Editbar extends Component {
     if(this.state.shown){
       return (
         <div className="Editbar" onClick={this.toggle}>
-          {this.displayItems()}
-          {this.displayToolbar()}
+          <Itembar
+            items={this.props.items}
+          />
+          <Toolbar />
         </div>
       )}
     else {
@@ -28,28 +30,18 @@ export default class Editbar extends Component {
         >
         </div>
       )
-      }
+    }
   }
 
 ///////////////////////////////////////
 
   toggle = (event) => {
-    if(!(event.target.attributes.getNamedItem("src"))){
-    this.setState({shown: !this.state.shown})}
+    // console.log(event.target.attributes)
+    // if(!(event.target.attributes.getNamedItem("src"))){
+      this.setState({
+        shown: !this.state.shown
+      })
+    // }
   }
 
-  displayItems = () => {
-    return this.props.items.map(item => {
-      return (
-        <EditbarItem key={1000+item.id} item={item} />
-      )
-    })
-  }
-
-  displayToolbar = () => {
-    return (
-      // <Toolbar />
-      null
-    )
-  }
 }

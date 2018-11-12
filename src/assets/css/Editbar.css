@@ -1,7 +1,7 @@
 .Editbar {
   position: fixed;
   height: 75vh;
-  width: 10vw;
+  width: 15vw;
   z-index: 1;
   top: 10%;
   left: 0%;
@@ -20,7 +20,7 @@
 }
 
 .Editbar.Editbar-hidden {
-  left: -9.75vw;
+  left: -14.75vw;
 }
 
 /*# sourceMappingURL=Editbar.css.map */
