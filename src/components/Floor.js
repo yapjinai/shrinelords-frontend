@@ -5,9 +5,14 @@ class Floor extends Component {
   render() {
     const videoURL = './assets/video/sparkling_ocean_waves.mp4'
 
+
+
+
+
     return (
       <div className='Floor'>
         <img
+          id='floor'
           src='http://localhost:3001/assets/img/marble.jpg'
         />
       </div>
@@ -16,9 +21,3 @@ class Floor extends Component {
 }
 
 export default Floor;
-
-
-
-
-// <div className='cube'>
-// </div>

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Doors from './components/Doors';
 import Shrine from './containers/Shrine';
+import Floor from './components/Floor';
 import Background from './components/Background';
 import Navbar from './components/Navbar';
 import Leftbar from './components/Leftbar';
@@ -29,6 +30,7 @@ class App extends Component {
           updateCoordinates={this.updateCoordinates}
           shrine={this.state.shrine}
         />
+        <Floor />
         <Background />
       </div>
     );

@@ -99,24 +99,41 @@ class Offering extends Component {
     document.onmouseup = null;
     document.onmousemove = null;
     this.props.updateCoordinates(this.props.offering.id, newX, newY)
+
+
+    console.log(this.state.elmnt.style.maxWidth);
   }
 
   ////////////////////////////////////////////////////
 
   getResizedStyle = () => {
     const newStyle = {...this.state.style}
+    const maxWidth = parseInt(this.state.item.size)
+
+    const windowHeight = window.innerHeight
+    const floor = document.querySelector('#floor')
+    const floorHeight = floor.getBoundingClientRect().height
+    const backgroundHeight = windowHeight - floorHeight
+
     if (this.state.elmnt) {
       const offsetTop = this.state.elmnt.offsetTop
-      const windowHeight = window.innerHeight
-      const ratio = offsetTop / windowHeight
+      const offsetFromEdge = offsetTop - backgroundHeight
 
-      const maxWidth = parseInt(this.state.item.size)
-      const m = maxWidth - 75
-      const y = m * ratio + 75
+      let newWidth
 
-      const newwidth = Math.floor(y)
-      const newwidthString = `${newwidth}px`
-      newStyle.maxWidth = newwidthString
+      // const ratio = offsetTop / windowHeight
+      const ratio = offsetFromEdge / floorHeight
+
+      if (ratio < 0) {
+        newWidth = maxWidth / 2
+      }
+      else {
+        const m = maxWidth - (maxWidth / 2)
+        const y = m * ratio + (maxWidth / 2)
+        newWidth = Math.floor(y)
+      }
+      const newWidthString = `${newWidth}px`
+      newStyle.maxWidth = newWidthString
     }
     return newStyle
   }
