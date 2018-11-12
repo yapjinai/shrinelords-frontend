@@ -1,33 +1,53 @@
 .leftbar {
-    height: 75%; /* 100% Full-height */
-    width: 12%; /* 0 width - change this with JavaScript */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Stay on top */
-    top: 10%; /* Stay at the top */
-    left: 0%;
-    background-image: radial-gradient(#7b8266, #394768); /* Black*/
-    border: 2px black;
-    border-radius: 8px;
-    border-style: solid;
-    overflow-x: hidden; /* Disable horizontal scroll */
-    padding-top: 20px; /* Place content 60px from the top */
-    transition: .75s; /* 0.5 second transition effect to slide in the sidenav */
-    display: flex;
-    flex-wrap: wrap;
+  height: 75%;
+  /* 100% Full-height */
+  width: 12%;
+  /* 0 width - change this with JavaScript */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Stay on top */
+  top: 10%;
+  /* Stay at the top */
+  left: 0%;
+  background-image: radial-gradient(#7b8266, #394768);
+  /* Black*/
+  border: 2px black;
+  border-radius: 8px;
+  border-style: solid;
+  overflow-x: hidden;
+  /* Disable horizontal scroll */
+  padding-top: 20px;
+  /* Place content 60px from the top */
+  transition: 0.75s;
+  /* 0.5 second transition effect to slide in the sidenav */
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .hidden-leftbar {
-    height: 75%; /* 100% Full-height */
-    width: 12%; /* 0 width - change this with JavaScript */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Stay on top */
-    top: 10%; /* Stay at the top */
-    left: -11.5%;
-    background-image: radial-gradient(#7b8266, #394768); /* Black*/
-    border: 2px black;
-    border-radius: 8px;
-    border-style: solid;
-    overflow-x: hidden; /* Disable horizontal scroll */
-    padding-top: 20px; /* Place content 60px from the top */
-    transition: .75s; /* 0.5 second transition effect to slide in the sidenav */
+  height: 75%;
+  /* 100% Full-height */
+  width: 12%;
+  /* 0 width - change this with JavaScript */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Stay on top */
+  top: 10%;
+  /* Stay at the top */
+  left: -11.5%;
+  background-image: radial-gradient(#7b8266, #394768);
+  /* Black*/
+  border: 2px black;
+  border-radius: 8px;
+  border-style: solid;
+  overflow-x: hidden;
+  /* Disable horizontal scroll */
+  padding-top: 20px;
+  /* Place content 60px from the top */
+  transition: 0.75s;
+  /* 0.5 second transition effect to slide in the sidenav */
 }
+
+/*# sourceMappingURL=Leftbar.css.map */
