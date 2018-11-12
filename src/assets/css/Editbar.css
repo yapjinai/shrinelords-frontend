@@ -1,4 +1,4 @@
-.leftbar {
+.Editbar {
   height: 75%;
   /* 100% Full-height */
   width: 12%;
@@ -25,7 +25,7 @@
   flex-wrap: wrap;
 }
 
-.hidden-leftbar {
+.hidden-editbar {
   height: 75%;
   /* 100% Full-height */
   width: 12%;
@@ -50,4 +50,4 @@
   /* 0.5 second transition effect to slide in the sidenav */
 }
 
-/*# sourceMappingURL=Leftbar.css.map */
+/*# sourceMappingURL=Editbar.css.map */

@@ -4,7 +4,7 @@ import Shrine from './containers/Shrine';
 import Floor from './components/Floor';
 import Background from './components/Background';
 import Navbar from './components/Navbar';
-import Leftbar from './components/Leftbar';
+import Editbar from './components/Editbar';
 
 import './assets/css/App.css'
 
@@ -23,7 +23,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Leftbar items={this.state.items}/>
+        <Editbar items={this.state.items}/>
         <Navbar />
         <Doors />
         <Shrine
