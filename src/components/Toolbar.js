@@ -7,13 +7,7 @@ class Toolbar extends Component {
       <div className="Toolbar">
         TOOLS
         <ul>
-          <li>
-            <button>Delete</button>
-          </li>
-          <li>
-            <button>Bring forwards</button>
-          </li>
-
+          {this.displayMouseModeButtons()}
         </ul>
       </div>
     )
@@ -38,7 +32,9 @@ class Toolbar extends Component {
     ]
     return mouseModes.map(m => {
       return (
-        <li>
+        <li
+          key={m.mode}
+        >
           <button
             name={m.mode}
             onClick={this.handleClick}

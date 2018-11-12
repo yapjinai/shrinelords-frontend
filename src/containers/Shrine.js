@@ -4,9 +4,7 @@ import '../assets/css/Shrine.css'
 
 class Shrine extends Component {
   displayOfferings = () => {
-    console.log(this.props.shrine);
     if (this.props.shrine && this.props.shrine.offerings) {
-      console.log('displaying offerings!!');
       return this.props.shrine.offerings.map(o => {
         return (
           <Offering

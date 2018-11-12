@@ -5,5 +5,8 @@
   /* Disable horizontal scroll */
   text-align: left;
 }
+.Toolbar ul {
+  list-style: none;
+}
 
 /*# sourceMappingURL=Toolbar.css.map */
