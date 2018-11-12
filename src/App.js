@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Doors from './components/Doors';
 import Shrine from './containers/Shrine';
 import Background from './components/Background';
+import Navbar from './components/Navbar';
+import Leftbar from './components/Leftbar';
 
 import './assets/css/App.css'
 
@@ -20,6 +22,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <Leftbar />
+        <Navbar />
         <Doors />
         <Shrine
           updateCoordinates={this.updateCoordinates}
