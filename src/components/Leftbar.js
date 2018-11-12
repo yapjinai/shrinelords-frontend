@@ -13,10 +13,10 @@ export default class Leftbar extends Component {
 
   render(){
     if(this.state.shown){
-      return <div className="leftbar" onClick={this.move}></div>
+      return <div className="leftbar" onMouseOut={this.move}></div>
       }
     else {
-      return <div className="hidden-leftbar" onClick={this.move}></div>
+      return <div className="hidden-leftbar" onMouseOver={this.move}></div>
       }
   }
 }
