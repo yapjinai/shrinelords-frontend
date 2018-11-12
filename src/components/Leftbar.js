@@ -1,5 +1,6 @@
 import React, { Component,PureComponent } from 'react'
 import '../assets/css/Leftbar.css'
+import LeftbarItem from './LeftbarItem'
 
 export default class Leftbar extends Component {
 
@@ -7,27 +8,20 @@ export default class Leftbar extends Component {
     className: 'hidden-leftbar'
   }
 
-  toggle = () => {
-    let newState
-    if (this.state.className === 'hidden-leftbar') {
-      newState = 'leftbar'
-    }
-    else {
-      newState = 'hidden-leftbar'
-    }
-    this.setState({
-      className: newState
-    })
+  move = (event) => {
+    if(!(event.target.attributes.getNamedItem("src"))){
+    this.setState({shown: !this.state.shown})}
   }
 
   render(){
-    return (
-      <div
-        className={this.state.className}
-        onMouseOver={this.toggle}
-        onMouseOut={this.toggle}
-      >
-      </div>
-    )
+    if(this.state.shown){
+      return (
+        <div className="leftbar" onClick={this.move}>
+          {this.props.items.map(item => <LeftbarItem key={1000+item.id} item={item} />)}
+        </div>
+      )}
+    else {
+      return <div className="hidden-leftbar" onClick={this.move}></div>
+      }
   }
 }

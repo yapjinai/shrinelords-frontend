@@ -23,7 +23,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Leftbar />
+        <Leftbar items={this.state.items}/>
         <Navbar />
         <Doors />
         <Shrine
@@ -38,6 +38,7 @@ class App extends Component {
 
   componentDidMount() {
     this.loadShrine()
+    this.loadItems()
   }
 
   //////////////////////////////////
@@ -48,6 +49,16 @@ class App extends Component {
     .then(shrine => {
       this.setState({
         shrine: shrine
+      })
+    })
+  }
+
+  loadItems = () => {
+    fetch(`${apiURL}/api/v1/items`)
+    .then(res => res.json())
+    .then(items => {
+      this.setState({
+        items: items
       })
     })
   }
