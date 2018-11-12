@@ -40,6 +40,17 @@ class Offering extends Component {
   }
 
 ////////////////////////////////////////////////////////////////////////
+
+  getItemFromOffering = () => {
+    fetch(`http://localhost:3000/api/v1/offerings/${this.props.offering.id}`)
+    .then(res => res.json())
+    .then(offering => {
+      this.setState({
+        item: offering.item
+      }, () => this.setMaxWidthStyle())
+    })
+  }
+
   setMaxWidthStyle = () => {
     if (this.state.item && !this.state.style.maxWidth) {
       const newStyle = {...this.state.style}
@@ -48,25 +59,6 @@ class Offering extends Component {
         style: newStyle
       })
     }
-  }
-
-  //EXPERIMENTAL: ADD perspective
-  getResizedStyle = () => {
-    const newStyle = {...this.state.style}
-    if (this.state.elmnt) {
-      const offsetTop = this.state.elmnt.offsetTop
-      const windowHeight = window.innerHeight
-      const ratio = offsetTop / windowHeight
-
-      const maxWidth = parseInt(this.state.item.size)
-      const m = maxWidth - 50
-      const y = m * ratio + 50
-
-      const newwidth = Math.floor(y)
-      const newwidthString = `${newwidth}px`
-      newStyle.maxWidth = newwidthString
-    }
-    return newStyle
   }
 
 ////////////////////////////////////////////////////////////////////////
@@ -110,15 +102,23 @@ class Offering extends Component {
   }
 
   ////////////////////////////////////////////////////
+  
+  getResizedStyle = () => {
+    const newStyle = {...this.state.style}
+    if (this.state.elmnt) {
+      const offsetTop = this.state.elmnt.offsetTop
+      const windowHeight = window.innerHeight
+      const ratio = offsetTop / windowHeight
 
-  getItemFromOffering = () => {
-    fetch(`http://localhost:3000/api/v1/offerings/${this.props.offering.id}`)
-    .then(res => res.json())
-    .then(offering => {
-      this.setState({
-        item: offering.item
-      }, () => this.setMaxWidthStyle())
-    })
+      const maxWidth = parseInt(this.state.item.size)
+      const m = maxWidth - 50
+      const y = m * ratio + 50
+
+      const newwidth = Math.floor(y)
+      const newwidthString = `${newwidth}px`
+      newStyle.maxWidth = newwidthString
+    }
+    return newStyle
   }
 
 }
