@@ -1,31 +1,26 @@
-$editbar-width: 15vw;
+$editbar-width: 20vw;
 
 .Editbar {
   position: fixed;
-  height: 75vh;
+  height: 80vh;
   width: $editbar-width;
   z-index: 1;
-  top: 10%;
-  left: 0%;
+  top: 10vh;
+  left: 0;
   background-image: radial-gradient(#ad8fa3, #394768);
-
-  overflow-x: hidden; /* Disable horizontal scroll */
-  padding: 20px; /* Place content 60px from the top */
   transition: .75s; /* 0.5 second transition effect to slide in the sidenav */
-
-  display: flex;
-  // flex-direction: column;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  align-content: flex-start;
 
   // overflow: hidden;
 
   // border: 1px solid black;
   border-radius: 8px;
+
+  div {
+    margin: 5%;
+  }
 }
 
 .Editbar.Editbar-hidden {
   // left: -74vw;
-  left: 0 - ($editbar-width - .25)
+  left: 0 - ($editbar-width - 2)
 }

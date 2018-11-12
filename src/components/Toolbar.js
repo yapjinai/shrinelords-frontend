@@ -5,7 +5,18 @@ class Toolbar extends Component {
   render() {
     return(
       <div className="Toolbar">
-        tools
+        TOOLS
+        <ul>
+          <li>
+            <button>Delete</button>
+          </li>
+          <li>
+            <button>Bring forwards</button>
+          </li>
+          <li>
+            <button>Send backwards</button>
+          </li>
+        </ul>
       </div>
     )
   }

@@ -1,6 +1,17 @@
 .Itembar {
   position: relative;
-  // height: 50%;
+  height: 78%;
 
+  overflow-x: hidden;
+  // padding: 10px;
+
+
+  display: flex;
+  // flex-direction: column;
+  flex-wrap: wrap;
+  align-items:center;
+  align-content: flex-start;
+
+  // background: red;
   // border: 2px solid blue;
 }

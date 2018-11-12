@@ -1,26 +1,21 @@
 .Editbar {
   position: fixed;
-  height: 75vh;
-  width: 15vw;
+  height: 80vh;
+  width: 20vw;
   z-index: 1;
-  top: 10%;
-  left: 0%;
+  top: 10vh;
+  left: 0;
   background-image: radial-gradient(#ad8fa3, #394768);
-  overflow-x: hidden;
-  /* Disable horizontal scroll */
-  padding: 20px;
-  /* Place content 60px from the top */
   transition: 0.75s;
   /* 0.5 second transition effect to slide in the sidenav */
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  align-content: flex-start;
   border-radius: 8px;
+}
+.Editbar div {
+  margin: 5%;
 }
 
 .Editbar.Editbar-hidden {
-  left: -14.75vw;
+  left: -18vw;
 }
 
 /*# sourceMappingURL=Editbar.css.map */

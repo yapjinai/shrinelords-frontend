@@ -1,3 +1,10 @@
 .Toolbar {
-  
+  position: relative;
+  height: 17%;
+
+  overflow-x: hidden; /* Disable horizontal scroll */
+
+  text-align: left;
+
+  background: blue;
 }

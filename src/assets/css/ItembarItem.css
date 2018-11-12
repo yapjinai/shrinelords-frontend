@@ -1,7 +1,8 @@
 .ItembarItem {
-  margin: 10px;
   position: relative;
-  max-height: 10vh;
+  margin: 10px;
+  max-height: 20vh;
+  max-width: 15vw;
   overflow: hidden;
   flex-basis: 1;
 }
