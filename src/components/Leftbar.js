@@ -4,7 +4,7 @@ import '../assets/css/Leftbar.css'
 export default class Leftbar extends Component {
 
   state = {
-    shown: true
+    shown: false
   }
 
   move = () => {

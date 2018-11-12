@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Offering from '../components/Offering'
 import '../assets/css/Shrine.css'
+import Floor from '../components/Floor';
 
 class Shrine extends Component {
   displayOfferings = () => {
@@ -23,6 +24,7 @@ class Shrine extends Component {
     return (
       <div className="Shrine">
         {this.displayOfferings()}
+        <Floor />
       </div>
     );
   }
