@@ -12,6 +12,13 @@ class Toolbar extends Component {
     )
   }
 
+<<<<<<< HEAD
+=======
+  componentDidMount() {
+    document.addEventListener('keyDown', this.handleKeyDown)
+  }
+
+>>>>>>> dev
   //////////////////////////
 
   displayMouseModeButtons = () => {
@@ -69,6 +76,18 @@ class Toolbar extends Component {
     this.props.updateMouseMode(e.target.name)
   }
 
+<<<<<<< HEAD
+=======
+  handleKeyDown = (e) => {
+    switch (e.key) {
+      case 'm':
+        break;
+      default:
+        break;
+    }
+  }
+
+>>>>>>> dev
   handleMouseOver = (e) => {
     const infoDiv = e.target.nextSibling
     infoDiv.classList.add('display')

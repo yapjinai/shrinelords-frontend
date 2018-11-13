@@ -169,7 +169,10 @@ class App extends Component {
           zIndex: o.zIndex
         })
       })
+<<<<<<< HEAD
       .then(r => r.json())
+=======
+>>>>>>> dev
     })
   }
 
