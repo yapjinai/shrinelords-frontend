@@ -19,7 +19,7 @@ class App extends Component {
       shrine: {},
       offerings: [],
       items: [],
-      mouseMode: 'select'
+      mouseMode: 'move'
     }
   }
 

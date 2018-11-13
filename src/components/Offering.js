@@ -26,7 +26,7 @@ class Offering extends Component {
         className="Offering"
         id={`item-${offering.id}`}
         style={this.getResizedStyle()}
-        onMouseDown={(mouseMode === 'select') ? this.handleMouseDown : null}
+        onMouseDown={(mouseMode === 'move') ? this.handleMouseDown : null}
         onClick={this.handleClick}
       >
         <img
@@ -72,7 +72,7 @@ class Offering extends Component {
       const elmnt = this.state.elmnt
       // elmnt.firstChild.setAttribute('class', mouseMode)
 
-      if (mouseMode === 'select') {
+      if (mouseMode === 'move') {
         elmnt.firstChild.style.cursor = `move`
       }
       else {
@@ -82,24 +82,6 @@ class Offering extends Component {
       }
     }
   }
-
-  // setMouseMode = () => {
-  //   if (this.state.elmnt) {
-  //     const mouseMode = this.props.mouseMode
-  //     const elmnt = this.state.elmnt
-  //     switch (mouseMode) {
-  //       case 'delete':
-  //
-  //         break;
-  //       case 'up':
-  //         break;
-  //       case 'down':
-  //         break;
-  //       default:
-  //         break;
-  //     }
-  //   }
-  // }
 
 ////////////////////////////////////////////////////////////////////////
 

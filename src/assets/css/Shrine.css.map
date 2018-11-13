@@ -1,7 +1,1 @@
-{
-"version": 3,
-"mappings": "AAAA,OAAQ;EACN,MAAM,EAAE,KAAK;EACb,KAAK,EAAE,KAAK;EACZ,OAAO,EAAE,CAAC",
-"sources": ["../scss/Shrine.scss"],
-"names": [],
-"file": "Shrine.css"
-}
+{"version":3,"sourceRoot":"","sources":["../scss/Shrine.scss"],"names":[],"mappings":"AAAA;EACE;EACA;EACA","file":"Shrine.css"}
