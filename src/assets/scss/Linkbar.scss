@@ -1,17 +1,18 @@
 .linkbar {
-    height: 26%; /* 100% Full-height */
-    width: 3.375%; /* 0 width - change this with JavaScript */
-    position: fixed; /* Stay in place */
+    height: 25%; /* 100% Full-height */
+    width: 4.5%; /* 0 width - change this with JavaScript */
+    position: fixed;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
     z-index: 1; /* Stay on top */
-    top: 8.4%; /* Stay at the top */
+    top: 8%; /* Stay at the top */
     right: 0%;
     background-image: radial-gradient(#7b8266, #394768); /* Black*/
     border: 1px black;
     border-radius: 8px;
     border-style: solid;
-    overflow-x: hidden; /* Disable horizontal scroll */
-    padding-top: 20px; /* Place content 60px from the top */
-    padding-right: 20px;
+    overflow-x: hidden;
     opacity: .6;
     transition: .75s; /* 0.5 second transition effect to slide in the sidenav */
 }
@@ -30,4 +31,17 @@
     opacity: 0;
     overflow-x: hidden; /* Disable horizontal scroll */
     transition: .75s; /* 0.5 second transition effect to slide in the sidenav */
+}
+
+.linkcontainer {
+  height: 40%;
+  width: 90%;
+}
+
+.linkbarlink {
+  position: absolute;
+  max-width: 90%;
+  max-height: 33%;
+  padding: 1%;
+  justify-content: center;
 }

@@ -1,6 +1,6 @@
 .navbar {
-    height: 6%; /* 100% Full-height */
-    width: 3.375%; /* 0 width - change this with JavaScript */
+    height: 8%; /* 100% Full-height */
+    width: 4.5%; /* 0 width - change this with JavaScript */
     position: fixed; /* Stay in place */
     z-index: 1; /* Stay on top */
     top: 0%; /* Stay at the top */
@@ -10,8 +10,6 @@
     border-radius: 8px;
     border-style: solid;
     overflow-x: hidden; /* Disable horizontal scroll */
-    padding-top: 20px; /* Place content 60px from the top */
-    padding-right: 20px;
     transition: .75s; /* 0.5 second transition effect to slide in the sidenav */
     opacity: .6;
 }
