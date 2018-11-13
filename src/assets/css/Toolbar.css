@@ -16,5 +16,17 @@
   flex-wrap: wrap;
   justify-content: center;
 }
+.Toolbar ul li {
+  position: relative;
+}
+.Toolbar .info {
+  position: absolute;
+  background: white;
+  z-index: 1;
+  display: none;
+}
+.Toolbar .display {
+  display: initial;
+}
 
 /*# sourceMappingURL=Toolbar.css.map */

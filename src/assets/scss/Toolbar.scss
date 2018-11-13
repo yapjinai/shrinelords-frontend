@@ -19,8 +19,20 @@
     flex-wrap: wrap;
     justify-content: center;
     li {
+      position: relative;
       // padding: 0;
       // list-style: none;
     }
+  }
+
+  .info {
+    position: absolute;
+    background: white;
+    z-index: 1;
+    display: none;
+  }
+
+  .display {
+    display: initial;
   }
 }
