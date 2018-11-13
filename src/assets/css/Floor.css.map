@@ -1,1 +1,7 @@
-{"version":3,"sourceRoot":"","sources":["../scss/Floor.scss"],"names":[],"mappings":"AAAA;EACE;EACA;EACA;EACA;EACA;EAIA;EACA;;AAIA;EACE;EACA;EACA;EACA;EACA;EAEA;EACA","file":"Floor.css"}
+{
+"version": 3,
+"mappings": "AAAA,MAAO;EACL,QAAQ,EAAE,KAAK;EACf,OAAO,EAAE,EAAE;EACX,KAAK,EAAE,IAAI;EACX,MAAM,EAAE,IAAI;EACZ,MAAM,EAAE,CAAC;EAIT,WAAW,EAAE,MAAM;EACnB,kBAAkB,EAAE,GAAG;EAIvB,aAAO;IACL,QAAQ,EAAE,QAAQ;IAClB,KAAK,EAAE,IAAI;IACX,MAAM,EAAE,IAAI;IACZ,MAAM,EAAE,CAAC;IACT,IAAI,EAAE,CAAC;IAEP,SAAS,EAAE,cAAc;IACzB,gBAAgB,EAAE,aAAa",
+"sources": ["../scss/Floor.scss"],
+"names": [],
+"file": "Floor.css"
+}
