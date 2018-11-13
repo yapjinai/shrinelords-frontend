@@ -1,10 +1,11 @@
 .shrinegrid {
-  display: flex;
-  flex-wrap: wrap;
+  position: absolute;
+  color: white;
   justify-content: space-around;
   background-image: radial-gradient(#7b8266, #394768);
   height: 100%;
-  width: 100%; }
+  width: 100%;
+  display: flex; }
 
 .minishrine {
   height: 270px;
@@ -36,5 +37,7 @@ p {
   height: inherit;
   z-index: 0;
   width: inherit; }
+
+/*# sourceMappingURL=Shrines.css.map */
 
 /*# sourceMappingURL=Shrines.css.map */
