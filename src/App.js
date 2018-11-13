@@ -9,12 +9,13 @@ import Editbar from './components/Editbar';
 import './assets/css/App.css'
 
 const apiURL = 'http://localhost:3000'
-const shrineId = 4
+let shrineId = 4
 
 
 class App extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
+    shrineId = props.match.params.id
     this.state = {
       shrine: {},
       offerings: [],
