@@ -1,5 +1,4 @@
 * {
-  cursor: default;
   -webkit-touch-callout: none;
   /* iOS Safari */
   -webkit-user-select: none;
@@ -17,8 +16,7 @@
 
 .App {
   position: relative;
+  overflow: hidden;
 }
-
-/* ============================= */
 
 /*# sourceMappingURL=App.css.map */
