@@ -18,8 +18,9 @@ class App extends Component {
     this.state = {
       shrine: {},
       offerings: [],
+      back: {},
       items: [],
-      mouseMode: 'up'
+      mouseMode: 'move'
     }
   }
 
@@ -46,7 +47,7 @@ class App extends Component {
           moveBottom={this.moveBottom}
         />
         <Floor />
-        <Background />
+        {!!this.state.back.video ? <Background back={this.state.back.video}/> : null}
       </div>
     );
   }
@@ -54,6 +55,7 @@ class App extends Component {
   componentDidMount() {
     this.loadShrine()
     this.loadItems()
+    window.addEventListener('keydown', this.handleKeyDown)
   }
 
   //////////////////////////////////
@@ -64,9 +66,35 @@ class App extends Component {
     .then(shrine => {
       this.setState({
         shrine: shrine,
-        offerings: shrine.offerings
+        offerings: shrine.offerings,
+        back: shrine.back
       }, () => this.arrangeOfferingsByZIndex(this.state.offerings))
     })
+  }
+
+  handleKeyDown = (e) => {
+    switch (e.key) {
+      case 'v':
+        this.updateMouseMode('move')
+        break;
+      case 'x':
+        this.updateMouseMode('delete')
+        break;
+      case 'ArrowUp':
+        this.updateMouseMode('up')
+        break;
+      case 'ArrowDown':
+        this.updateMouseMode('down')
+        break;
+      case 'ArrowRight':
+        this.updateMouseMode('top')
+        break;
+      case 'ArrowLeft':
+        this.updateMouseMode('bottom')
+        break;
+      default:
+        break;
+    }
   }
 
   arrangeOfferingsByZIndex = (offerings) => {
@@ -106,7 +134,8 @@ class App extends Component {
       body: JSON.stringify({
         shrine_id: this.state.shrine.id,
         item_id: item.id,
-        style: `{"top":"40%","left":"40%"}`
+        style: `{"top":"40%","left":"40%"}`,
+        zIndex: this.state.offerings.length
       })
     })
     .then(() => this.loadShrine())
@@ -208,11 +237,11 @@ class App extends Component {
     // if not at top
     if (offeringIndex !== newOfferings.length - 1) {
       // switch indices=
-      const zIndex1 = newOfferings[offeringIndex].zIndex
-      const zIndex2 = newOfferings[newOfferings.length - 1].zIndex
-
-      newOfferings[newOfferings.length - 1].zIndex = zIndex1
-      newOfferings[offeringIndex].zIndex = zIndex2
+      // const zIndex1 = newOfferings[offeringIndex].zIndex
+      // const zIndex2 = newOfferings[newOfferings.length - 1].zIndex
+      //
+      // newOfferings[newOfferings.length - 1].zIndex = zIndex1
+      newOfferings[offeringIndex].zIndex = newOfferings.length
 
       this.arrangeOfferingsByZIndex(newOfferings)
     }
@@ -225,11 +254,11 @@ class App extends Component {
     // if not at bottom
     if (offeringIndex !== 0) {
       // switch indices=
-      const zIndex1 = newOfferings[offeringIndex].zIndex
-      const zIndex2 = newOfferings[0].zIndex
-
-      newOfferings[0].zIndex = zIndex1
-      newOfferings[offeringIndex].zIndex = zIndex2
+      // const zIndex1 = newOfferings[offeringIndex].zIndex
+      // const zIndex2 = newOfferings[0].zIndex
+      //
+      // newOfferings[0].zIndex = zIndex1
+      newOfferings[offeringIndex].zIndex = -1
 
       this.arrangeOfferingsByZIndex(newOfferings)
     }

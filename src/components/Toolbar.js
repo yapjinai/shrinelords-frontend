@@ -12,45 +12,40 @@ class Toolbar extends Component {
     )
   }
 
+<<<<<<< HEAD
+=======
   componentDidMount() {
     document.addEventListener('keyDown', this.handleKeyDown)
   }
 
+>>>>>>> dev
   //////////////////////////
 
   displayMouseModeButtons = () => {
-    // const mouseModes = [
-    //   'move',
-    //   'delete',
-    //   'up',
-    //   'down',
-    //   'top',
-    //   'bottom',
-    // ]
     const mouseModes = [
       {
         mode: 'move',
-        buttonName: 'Move'
+        buttonName: 'Move (V)'
       },
       {
         mode: 'delete',
-        buttonName: 'Delete'
+        buttonName: 'Delete (X)'
       },
       {
         mode: 'up',
-        buttonName: 'Move up'
+        buttonName: 'Move up (↑)'
       },
       {
         mode: 'down',
-        buttonName: 'Move down'
+        buttonName: 'Move down (↓)'
       },
       {
         mode: 'top',
-        buttonName: 'Move to top'
+        buttonName: 'Move to top (→)'
       },
       {
         mode: 'bottom',
-        buttonName: 'Move to bottom'
+        buttonName: 'Move to bottom (←)'
       },
     ]
     return mouseModes.map(m => {
@@ -81,6 +76,8 @@ class Toolbar extends Component {
     this.props.updateMouseMode(e.target.name)
   }
 
+<<<<<<< HEAD
+=======
   handleKeyDown = (e) => {
     switch (e.key) {
       case 'm':
@@ -90,6 +87,7 @@ class Toolbar extends Component {
     }
   }
 
+>>>>>>> dev
   handleMouseOver = (e) => {
     const infoDiv = e.target.nextSibling
     infoDiv.classList.add('display')

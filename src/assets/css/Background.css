@@ -7,4 +7,10 @@
   height: 100%;
 }
 
+.shrineback {
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: fill;
+}
+
 /*# sourceMappingURL=Background.css.map */
