@@ -6,7 +6,15 @@
   text-align: left;
 }
 .Toolbar ul {
+  width: 150px;
+  height: 106px;
+  margin: auto;
+  padding: 0;
   list-style: none;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 /*# sourceMappingURL=Toolbar.css.map */

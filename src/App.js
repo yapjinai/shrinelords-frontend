@@ -9,8 +9,7 @@ import Editbar from './components/Editbar';
 import './assets/css/App.css'
 
 const apiURL = 'http://localhost:3000'
-let shrineId = 4
-
+let shrineId
 
 class App extends Component {
   constructor(props) {
@@ -21,7 +20,7 @@ class App extends Component {
       offerings: [],
       back: {},
       items: [],
-      mouseMode: 'select'
+      mouseMode: 'move'
     }
   }
 
@@ -40,6 +39,7 @@ class App extends Component {
           shrine={this.state.shrine}
           offerings={this.state.offerings}
           mouseMode={this.state.mouseMode}
+          deleteOffering={this.deleteOffering}
         />
         <Floor />
         {!!this.state.back.video ? <Background back={this.state.back.video}/> : null}
@@ -58,6 +58,7 @@ class App extends Component {
     fetch(`${apiURL}/api/v1/shrines/${shrineId}`)
     .then(res => res.json())
     .then(shrine => {
+      console.log(shrine.offerings);
       this.setState({
         shrine: shrine,
         offerings: shrine.offerings,
@@ -88,7 +89,8 @@ class App extends Component {
         item_id: item.id,
         style: `{"top":"40%","left":"40%"}`
       })
-    }).then(this.loadShrine())
+    })
+    .then(() => this.loadShrine())
   }
 
   updateCoordinates = (offeringId, posX, posY) => {
@@ -102,6 +104,13 @@ class App extends Component {
         style: `{"top":${posY},"left":${posX}}`
       })
     })
+  }
+
+  deleteOffering = (id) => {
+    fetch(`http://localhost:3000/api/v1/offerings/${id}`, {
+      method: 'DELETE'
+    })
+    .then(() => this.loadShrine())
   }
 
   updateMouseMode = (mode) => {

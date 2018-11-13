@@ -14,15 +14,20 @@ class Offering extends Component {
       item: {},
     }
   }
+  // this.setMouseMode()
 
   render() {
+    this.setCursor()
     const offering = this.props.offering
+    const mouseMode = this.props.mouseMode
+
     return (
       <div
         className="Offering"
         id={`item-${offering.id}`}
         style={this.getResizedStyle()}
-        onMouseDown={this.handleMouseDown}
+        onMouseDown={(mouseMode === 'move') ? this.handleMouseDown : null}
+        onClick={this.handleClick}
       >
         <img
           src={this.state.item.image}
@@ -37,10 +42,6 @@ class Offering extends Component {
       elmnt: document.querySelector(`#item-${this.props.offering.id}`),
     })
     this.getItemFromOffering()
-  }
-
-  componentDidUpdate() {
-    this.setCursor()
   }
 
 ////////////////////////////////////////////////////////////////////////
@@ -66,15 +67,40 @@ class Offering extends Component {
   }
 
   setCursor = () => {
-    console.log(this.state.elmnt);
-    const mouseMode = this.props.mouseMode
-    const cursorUrl = `./assets/img/${mouseMode}.png`
-    const cursorString = `url(${cursorUrl})`
-    // shrineDiv.style.cursor = `url(${cursorUrl})`
-    this.state.elmnt.style.cursor = `${cursorString}, auto`
+    if (this.state.elmnt) {
+      const mouseMode = this.props.mouseMode
+      const elmnt = this.state.elmnt
+      // elmnt.firstChild.setAttribute('class', mouseMode)
+
+      if (mouseMode === 'move') {
+        elmnt.firstChild.style.cursor = `move`
+      }
+      else {
+        const cursorUrl = `../../assets/img/${mouseMode}.png`
+        const cursorString = `url(${cursorUrl})`
+        elmnt.firstChild.style.cursor = `${cursorString}, auto`
+      }
+    }
   }
 
 ////////////////////////////////////////////////////////////////////////
+
+  handleClick = (e) => {
+    const mouseMode = this.props.mouseMode
+    switch (mouseMode) {
+      case 'delete':
+        this.props.deleteOffering(this.props.offering.id)
+        break;
+      case 'up':
+        this.props.moveUp(this.props.offering.id)
+        break;
+      case 'down':
+        this.props.moveDown(this.props.offering.id)
+        break;
+      default:
+        break;
+    }
+  }
 
   handleMouseDown = (e) => {
     e = e || window.event;
@@ -112,9 +138,6 @@ class Offering extends Component {
     document.onmouseup = null;
     document.onmousemove = null;
     this.props.updateCoordinates(this.props.offering.id, newX, newY)
-
-
-    console.log(this.state.elmnt.style.maxWidth);
   }
 
   ////////////////////////////////////////////////////
@@ -129,7 +152,7 @@ class Offering extends Component {
     const backgroundHeight = windowHeight - floorHeight
 
     if (this.state.elmnt) {
-      const offsetTop = this.state.elmnt.offsetTop
+      const offsetTop = this.state.elmnt.offsetTop + this.state.elmnt.offsetHeight/2
       const offsetFromEdge = offsetTop - backgroundHeight
 
       let newWidth

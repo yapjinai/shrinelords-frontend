@@ -2,8 +2,27 @@
   position: absolute;
   max-width: 500px;
 }
+.Offering .select {
+  cursor: move;
+}
+.Offering .delete {
+  cursor: url("http://localhost:3001/assets/img/delete.png");
+}
+.Offering .up {
+  cursor: ew-resize;
+  border: 2px solid blue;
+}
+.Offering .down {
+  cursor: url("http://localhost:3001/assets/img/down.png");
+}
 .Offering img {
   width: 100%;
+}
+.Offering img:hover {
+  filter: drop-shadow(0 0 10px #0ff);
+}
+.Offering img:active {
+  filter: drop-shadow(0 0 10px #ff80d5);
 }
 
 /*# sourceMappingURL=Offering.css.map */

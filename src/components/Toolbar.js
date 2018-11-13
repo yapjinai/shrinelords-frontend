@@ -17,34 +17,41 @@ class Toolbar extends Component {
 
   displayMouseModeButtons = () => {
     const mouseModes = [
-      {
-        mode: 'select',
-        buttonName: 'Select'
-      },
-      {
-        mode: 'delete',
-        buttonName: 'Delete'
-      },
-      {
-        mode: 'up',
-        buttonName: 'Move up'
-      },
-      {
-        mode: 'down',
-        buttonName: 'Move down'
-      }
+      'move',
+      'delete',
+      'up',
+      'down',
+      'top',
+      'bottom',
     ]
+    // const mouseModes = [
+    //   {
+    //     mode: 'select',
+    //     buttonName: 'Select'
+    //   },
+    //   {
+    //     mode: 'delete',
+    //     buttonName: 'Delete'
+    //   },
+    //   {
+    //     mode: 'up',
+    //     buttonName: 'Move up'
+    //   },
+    //   {
+    //     mode: 'down',
+    //     buttonName: 'Move down'
+    //   }
+    // ]
     return mouseModes.map(m => {
       return (
         <li
-          key={m.mode}
+          key={m}
         >
-          <button
-            name={m.mode}
+          <img
+            src={`../../assets/img/${m}.png`}
+            name={m}
             onClick={this.handleClick}
-          >
-            {m.buttonName}
-          </button>
+          />
         </li>
       )
     })

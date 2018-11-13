@@ -6,7 +6,7 @@ $editbar-width: 20vw;
   width: $editbar-width;
   z-index: 1;
   top: 10vh;
-  left: 0 - ($editbar-width - 2);
+  // left: 0 - ($editbar-width - 2);
   background-image: radial-gradient(#ad8fa3, #394768);
   transition: .75s;
 
