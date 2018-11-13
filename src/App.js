@@ -266,5 +266,3 @@ class App extends Component {
 }
 
 export default App;
-
-/// TO DO: prevent vertical scrolling

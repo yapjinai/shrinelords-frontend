@@ -12,13 +12,6 @@ class Toolbar extends Component {
     )
   }
 
-<<<<<<< HEAD
-=======
-  componentDidMount() {
-    document.addEventListener('keyDown', this.handleKeyDown)
-  }
-
->>>>>>> dev
   //////////////////////////
 
   displayMouseModeButtons = () => {
