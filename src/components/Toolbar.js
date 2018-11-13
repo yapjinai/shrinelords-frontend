@@ -68,19 +68,7 @@ class Toolbar extends Component {
     e.preventDefault()
     this.props.updateMouseMode(e.target.name)
   }
-
-<<<<<<< HEAD
-=======
-  handleKeyDown = (e) => {
-    switch (e.key) {
-      case 'm':
-        break;
-      default:
-        break;
-    }
-  }
-
->>>>>>> dev
+  
   handleMouseOver = (e) => {
     const infoDiv = e.target.nextSibling
     infoDiv.classList.add('display')
