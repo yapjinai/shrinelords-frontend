@@ -3,7 +3,7 @@ import '../assets/css/Background.css'
 
 class Background extends Component {
   render() {
-    const videoURL = './assets/video/sparkling_ocean_waves.mp4'
+    const videoURL = '../assets/video/sparkling_ocean_waves.mp4'
 
     return (
       <div className='Background'>
