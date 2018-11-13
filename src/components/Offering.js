@@ -30,9 +30,12 @@ class Offering extends Component {
         onClick={this.handleClick}
       >
         <img
-          src={this.state.item.image}
-          alt={this.state.item.name}
+        src={this.state.item.image}
+        alt={this.state.item.name}
         />
+        <h1 style={{color: 'white', position: 'absolute', top: 0}}>
+          {offering ? offering.id : null}
+        </h1>
       </div>
     )
   }
@@ -86,6 +89,9 @@ class Offering extends Component {
 ////////////////////////////////////////////////////////////////////////
 
   handleClick = (e) => {
+    console.log(this.props.offering.style);
+
+
     const mouseMode = this.props.mouseMode
     switch (mouseMode) {
       case 'delete':

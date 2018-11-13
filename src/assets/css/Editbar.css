@@ -4,6 +4,7 @@
   width: 20vw;
   z-index: 1;
   top: 10vh;
+  left: -18vw;
   background-image: radial-gradient(#ad8fa3, #394768);
   transition: 0.75s;
   border-radius: 8px;

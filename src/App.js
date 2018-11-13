@@ -19,12 +19,14 @@ class App extends Component {
       shrine: {},
       offerings: [],
       items: [],
-      mouseMode: 'move'
+      mouseMode: 'up'
     }
   }
 
   render() {
-    console.log(this.state.offerings.map(o => o.zIndex));
+    // console.table(this.state.offerings.map(o => {
+    //   return `${o.id}, ${o.zIndex}`
+    // }));
     return (
       <div className="App">
         <Editbar
@@ -54,7 +56,6 @@ class App extends Component {
 
   componentDidMount() {
     this.loadShrine()
-    this.arrangeOfferingsByZIndex()
     this.loadItems()
   }
 
@@ -67,18 +68,28 @@ class App extends Component {
       this.setState({
         shrine: shrine,
         offerings: shrine.offerings
-      })
+      }, () => this.arrangeOfferingsByZIndex())
     })
   }
 
   arrangeOfferingsByZIndex = () => {
-    const newOfferings = this.state.offerings
+    const newOfferings = [...this.state.offerings]
+
+    // sort offerings array by z index
     newOfferings.sort((a, b) => {
-      return b.zIndex - a.zIndex
+      return a.zIndex - b.zIndex
     })
-    this.setState({
-      offerings: newOfferings
+
+    newOfferings.forEach((o, i) => {
+      // if any offerings don't have z index, set them
+      o.zIndex = i
+
+      // update DOM
+      // console.log(o);
     })
+
+    this.updateDatabaseZIndex(newOfferings)
+    this.updateStateZIndex(newOfferings)
   }
 
   loadItems = () => {
@@ -120,6 +131,33 @@ class App extends Component {
     })
   }
 
+  //////////////
+
+  updateDatabaseZIndex = (newOfferings) => {
+    // update database
+    newOfferings.forEach(o => {
+      fetch(`${apiURL}/api/v1/offerings/${o.id}`, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          zIndex: o.zIndex
+        })
+      })
+      .then(r => r.json())
+      // .then(console.log)
+    })
+  }
+
+  updateStateZIndex = (newOfferings) => {
+    // update state
+    this.setState({
+      offerings: newOfferings
+    })
+  }
+
   ///////////
   // TOOLBAR ACTIONS
   ///////////
@@ -137,18 +175,26 @@ class App extends Component {
     .then(() => this.loadShrine())
   }
 
-  // moveUp = (offering) => {
-  //   const newOfferings = [...this.state.offerings]
-  //   const offeringIndex = newOfferings.indexOf(offering)
-  //   if (offeringIndex !== newOfferings.length - 1) {
-  //     newOfferings[offeringIndex + 1] = offering
-  //     newOfferings[offeringIndex] = this.state.offerings[offeringIndex + 1]
-  //     this.setState({
-  //       offerings: newOfferings
-  //     })
-  //     this.updateOfferings(newOfferings)
-  //   }
-  // }
+  moveUp = (offering) => {
+    console.log(offering.zIndex);
+
+    const newOfferings = [...this.state.offerings]
+    const offeringIndex = newOfferings.indexOf(offering)
+
+    // if not at top
+    if (offeringIndex !== newOfferings.length - 1) {
+      // switch indices
+      newOfferings[offeringIndex + 1] = offering
+      newOfferings[offeringIndex] = this.state.offerings[offeringIndex + 1]
+
+      this.updateDatabaseZIndex(newOfferings)
+      this.updateStateZIndex(newOfferings)
+
+      this.arrangeOfferingsByZIndex()
+    }
+  }
 }
 
 export default App;
+
+/// TO DO: prevent vertical scrolling
