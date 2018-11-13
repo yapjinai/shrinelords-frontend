@@ -1,5 +1,6 @@
 .shrinegrid {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-around;
   background-image: radial-gradient(#7b8266, #394768);
   height: 100%;
