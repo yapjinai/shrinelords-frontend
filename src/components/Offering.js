@@ -89,13 +89,13 @@ class Offering extends Component {
     const mouseMode = this.props.mouseMode
     switch (mouseMode) {
       case 'delete':
-        this.props.deleteOffering(this.props.offering.id)
+        this.props.deleteOffering(this.props.offering)
         break;
       case 'up':
-        this.props.moveUp(this.props.offering.id)
+        this.props.moveUp(this.props.offering)
         break;
       case 'down':
-        this.props.moveDown(this.props.offering.id)
+        this.props.moveDown(this.props.offering)
         break;
       default:
         break;

@@ -5,7 +5,6 @@ class Toolbar extends Component {
   render() {
     return(
       <div className="Toolbar">
-        TOOLS
         <ul>
           {this.displayMouseModeButtons()}
         </ul>
@@ -50,6 +49,7 @@ class Toolbar extends Component {
           <img
             src={`../../assets/img/${m}.png`}
             name={m}
+            alt={m}
             onClick={this.handleClick}
           />
         </li>

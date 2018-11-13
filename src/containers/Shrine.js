@@ -21,23 +21,18 @@ class Shrine extends Component {
           <Offering
           updateCoordinates={this.props.updateCoordinates}
           offering={o}
-          mouseMode={this.props.mouseMode}
           key={o.id}
+
+          mouseMode={this.props.mouseMode}
           deleteOffering={this.props.deleteOffering}
-          moveUp={this.moveUp}
-          moveDown={this.moveDown}
+          moveUp={this.props.moveUp}
+          moveDown={this.props.moveDown}
+          moveTop={this.props.moveTop}
+          moveBottom={this.props.moveBottom}
           />
         )
       })
     }
-  }
-
-  moveUp = (id) => {
-
-  }
-
-  moveDown = (id) => {
-
   }
 }
 

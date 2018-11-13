@@ -1,4 +1,4 @@
-import React, { Component,PureComponent } from 'react'
+import React, { Component } from 'react'
 import '../assets/css/Shrines.css'
 
 const shrinesURL = 'http://localhost:3000/api/v1/shrines'

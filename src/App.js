@@ -24,6 +24,7 @@ class App extends Component {
   }
 
   render() {
+    console.log(this.state.offerings.map(o => o.zIndex));
     return (
       <div className="App">
         <Editbar
@@ -37,8 +38,13 @@ class App extends Component {
           updateCoordinates={this.updateCoordinates}
           shrine={this.state.shrine}
           offerings={this.state.offerings}
+
           mouseMode={this.state.mouseMode}
           deleteOffering={this.deleteOffering}
+          moveUp={this.moveUp}
+          moveDown={this.moveDown}
+          moveTop={this.moveTop}
+          moveBottom={this.moveBottom}
         />
         <Floor />
         <Background />
@@ -48,6 +54,7 @@ class App extends Component {
 
   componentDidMount() {
     this.loadShrine()
+    this.arrangeOfferingsByZIndex()
     this.loadItems()
   }
 
@@ -57,11 +64,20 @@ class App extends Component {
     fetch(`${apiURL}/api/v1/shrines/${shrineId}`)
     .then(res => res.json())
     .then(shrine => {
-      console.log(shrine.offerings);
       this.setState({
         shrine: shrine,
         offerings: shrine.offerings
       })
+    })
+  }
+
+  arrangeOfferingsByZIndex = () => {
+    const newOfferings = this.state.offerings
+    newOfferings.sort((a, b) => {
+      return b.zIndex - a.zIndex
+    })
+    this.setState({
+      offerings: newOfferings
     })
   }
 
@@ -104,18 +120,35 @@ class App extends Component {
     })
   }
 
-  deleteOffering = (id) => {
-    fetch(`http://localhost:3000/api/v1/offerings/${id}`, {
-      method: 'DELETE'
-    })
-    .then(() => this.loadShrine())
-  }
+  ///////////
+  // TOOLBAR ACTIONS
+  ///////////
 
   updateMouseMode = (mode) => {
     this.setState({
       mouseMode: mode
     })
   }
+
+  deleteOffering = (offering) => {
+    fetch(`http://localhost:3000/api/v1/offerings/${offering.id}`, {
+      method: 'DELETE'
+    })
+    .then(() => this.loadShrine())
+  }
+
+  // moveUp = (offering) => {
+  //   const newOfferings = [...this.state.offerings]
+  //   const offeringIndex = newOfferings.indexOf(offering)
+  //   if (offeringIndex !== newOfferings.length - 1) {
+  //     newOfferings[offeringIndex + 1] = offering
+  //     newOfferings[offeringIndex] = this.state.offerings[offeringIndex + 1]
+  //     this.setState({
+  //       offerings: newOfferings
+  //     })
+  //     this.updateOfferings(newOfferings)
+  //   }
+  // }
 }
 
 export default App;
