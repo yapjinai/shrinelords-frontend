@@ -32,7 +32,7 @@ class App extends Component {
         <Editbar
           items={this.state.items}
           updateMouseMode={this.updateMouseMode}
-          addOffering={this.addOffering}
+          createOffering={this.createOffering}
         />
         <Navbar />
         <Doors />
@@ -68,15 +68,15 @@ class App extends Component {
       this.setState({
         shrine: shrine,
         offerings: shrine.offerings
-      }, () => this.arrangeOfferingsByZIndex())
+      }, () => this.arrangeOfferingsByZIndex(this.state.offerings))
     })
   }
 
-  arrangeOfferingsByZIndex = () => {
-    const newOfferings = [...this.state.offerings]
+  arrangeOfferingsByZIndex = (offerings) => {
+    let newOfferings = [...offerings]
 
     // sort offerings array by z index
-    newOfferings.sort((a, b) => {
+    newOfferings = newOfferings.sort((a, b) => {
       return a.zIndex - b.zIndex
     })
 
@@ -102,7 +102,7 @@ class App extends Component {
     })
   }
 
-  addOffering = (item) => {
+  createOffering = (item) => {
     fetch(`${apiURL}/api/v1/offerings`, {
       method: 'POST',
       headers: {
@@ -147,7 +147,7 @@ class App extends Component {
         })
       })
       .then(r => r.json())
-      // .then(console.log)
+      .then(console.table)
     })
   }
 
@@ -176,21 +176,70 @@ class App extends Component {
   }
 
   moveUp = (offering) => {
-    console.log(offering.zIndex);
-
     const newOfferings = [...this.state.offerings]
     const offeringIndex = newOfferings.indexOf(offering)
 
     // if not at top
     if (offeringIndex !== newOfferings.length - 1) {
-      // switch indices
-      newOfferings[offeringIndex + 1] = offering
-      newOfferings[offeringIndex] = this.state.offerings[offeringIndex + 1]
+      // switch indices=
+      const zIndex1 = newOfferings[offeringIndex].zIndex
+      const zIndex2 = newOfferings[offeringIndex + 1].zIndex
 
-      this.updateDatabaseZIndex(newOfferings)
-      this.updateStateZIndex(newOfferings)
+      newOfferings[offeringIndex + 1].zIndex = zIndex1
+      newOfferings[offeringIndex].zIndex = zIndex2
 
-      this.arrangeOfferingsByZIndex()
+      this.arrangeOfferingsByZIndex(newOfferings)
+    }
+  }
+
+  moveDown = (offering) => {
+    const newOfferings = [...this.state.offerings]
+    const offeringIndex = newOfferings.indexOf(offering)
+
+    // if not at bottom
+    if (offeringIndex !== 0) {
+      // switch indices=
+      const zIndex1 = newOfferings[offeringIndex].zIndex
+      const zIndex2 = newOfferings[offeringIndex - 1].zIndex
+
+      newOfferings[offeringIndex - 1].zIndex = zIndex1
+      newOfferings[offeringIndex].zIndex = zIndex2
+
+      this.arrangeOfferingsByZIndex(newOfferings)
+    }
+  }
+
+  moveTop = (offering) => {
+    const newOfferings = [...this.state.offerings]
+    const offeringIndex = newOfferings.indexOf(offering)
+
+    // if not at top
+    if (offeringIndex !== newOfferings.length - 1) {
+      // switch indices=
+      const zIndex1 = newOfferings[offeringIndex].zIndex
+      const zIndex2 = newOfferings[newOfferings.length - 1].zIndex
+
+      newOfferings[newOfferings.length - 1].zIndex = zIndex1
+      newOfferings[offeringIndex].zIndex = zIndex2
+
+      this.arrangeOfferingsByZIndex(newOfferings)
+    }
+  }
+
+  moveBottom = (offering) => {
+    const newOfferings = [...this.state.offerings]
+    const offeringIndex = newOfferings.indexOf(offering)
+
+    // if not at bottom
+    if (offeringIndex !== 0) {
+      // switch indices=
+      const zIndex1 = newOfferings[offeringIndex].zIndex
+      const zIndex2 = newOfferings[0].zIndex
+
+      newOfferings[0].zIndex = zIndex1
+      newOfferings[offeringIndex].zIndex = zIndex2
+
+      this.arrangeOfferingsByZIndex(newOfferings)
     }
   }
 }

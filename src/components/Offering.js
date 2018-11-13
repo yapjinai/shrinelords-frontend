@@ -33,18 +33,24 @@ class Offering extends Component {
         src={this.state.item.image}
         alt={this.state.item.name}
         />
-        <h1 style={{color: 'white', position: 'absolute', top: 0}}>
-          {offering ? offering.id : null}
-        </h1>
       </div>
     )
   }
+
+  // <h1 style={{color: 'white', position: 'absolute', top: 0}}>
+  // {offering ? offering.id : null},
+  // {offering ? offering.zIndex : null}
+  // </h1>
 
   componentDidMount() {
     this.setState({
       elmnt: document.querySelector(`#item-${this.props.offering.id}`),
     })
     this.getItemFromOffering()
+  }
+
+  componentDidUpdate() {
+    this.setZIndex()
   }
 
 ////////////////////////////////////////////////////////////////////////
@@ -69,6 +75,11 @@ class Offering extends Component {
     }
   }
 
+  setZIndex = () => {
+    const elmnt = this.state.elmnt
+    elmnt.style.zIndex = this.props.offering.zIndex
+  }
+
   setCursor = () => {
     if (this.state.elmnt) {
       const mouseMode = this.props.mouseMode
@@ -89,9 +100,6 @@ class Offering extends Component {
 ////////////////////////////////////////////////////////////////////////
 
   handleClick = (e) => {
-    console.log(this.props.offering.style);
-
-
     const mouseMode = this.props.mouseMode
     switch (mouseMode) {
       case 'delete':
@@ -102,6 +110,12 @@ class Offering extends Component {
         break;
       case 'down':
         this.props.moveDown(this.props.offering)
+        break;
+      case 'top':
+        this.props.moveTop(this.props.offering)
+        break;
+      case 'bottom':
+        this.props.moveBottom(this.props.offering)
         break;
       default:
         break;

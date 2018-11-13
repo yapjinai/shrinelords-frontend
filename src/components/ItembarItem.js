@@ -3,7 +3,7 @@ import '../assets/css/ItembarItem.css'
 
 const ItembarItem = (props) => {
   const handleClick = () => {
-      props.addOffering(props.item)
+      props.createOffering(props.item)
   }
 
   return(

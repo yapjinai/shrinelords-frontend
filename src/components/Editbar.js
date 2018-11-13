@@ -9,7 +9,7 @@ export default class Editbar extends Component {
       <div className="Editbar" onClick={this.toggle}>
         <Itembar
           items={this.props.items}
-          addOffering={this.props.addOffering}
+          createOffering={this.props.createOffering}
         />
         <Toolbar
           updateMouseMode={this.props.updateMouseMode}
