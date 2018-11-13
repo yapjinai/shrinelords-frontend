@@ -1,10 +1,18 @@
-.shrinegrid {
-  position: absolute;
-  color: white;
-  justify-content: space-around;
+.shrinescontainer {
   background-image: radial-gradient(#7b8266, #394768);
   height: 100%;
   width: 100%;
+  position: fixed;
+}
+
+.shrinegrid {
+  left: 20%;
+  position: absolute;
+  color: white;
+  justify-content: space-around;
+  height: 100%;
+  width: 60%;
+  flex-wrap: wrap;
   display: flex;
 }
 

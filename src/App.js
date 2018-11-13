@@ -18,6 +18,7 @@ class App extends Component {
     this.state = {
       shrine: {},
       offerings: [],
+      back: {},
       items: [],
       mouseMode: 'up'
     }
@@ -49,12 +50,12 @@ class App extends Component {
           moveBottom={this.moveBottom}
         />
         <Floor />
-        <Background />
+        {!!this.state.back.video ? <Background back={this.state.back.video}/> : null}
       </div>
     );
   }
 
-  componentDidMount() {
+  componentWillMount() {
     this.loadShrine()
     this.loadItems()
   }
@@ -67,7 +68,8 @@ class App extends Component {
     .then(shrine => {
       this.setState({
         shrine: shrine,
-        offerings: shrine.offerings
+        offerings: shrine.offerings,
+        back: shrine.back
       }, () => this.arrangeOfferingsByZIndex(this.state.offerings))
     })
   }
