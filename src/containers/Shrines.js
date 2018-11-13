@@ -4,18 +4,31 @@ import '../assets/css/Shrines.css'
 const shrinesURL = 'http://localhost:3000/api/v1/shrines'
 
 export default class Shrines extends Component {
-
   state = {
     shrines: []
   }
 
   shrinePreview = (shrine) => {
+    const videoURL = '../assets/video/sparkling_ocean_waves.mp4'
     return (
-      <div className="minishrine">
-        <img
-          src="https://images.unsplash.com/photo-1511804472014-fa7b871cd6a9?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=fc0b35984144aefaedf449d7651661c1&w=1000&q=80"
-          />
+      <React.Fragment>
+        <div className="shrineviewer">
+          <center><p>Shrine #{shrine.id}</p></center>
+          <div className="minishrine">
+          <video
+            className="minibackground"
+            autoPlay
+            muted
+            loop
+          >
+            <source
+              src={videoURL}
+              type="video/mp4"
+            />
+          </video>
+        </div>
       </div>
+      </React.Fragment>
     )
   }
 

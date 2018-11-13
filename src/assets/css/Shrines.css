@@ -6,17 +6,34 @@
   width: 100%; }
 
 .minishrine {
-  height: 200px;
-  width: 200px;
-  border-radius: 20px;
-  border-style: solid;
-  border: 2px black; }
+  height: 270px;
+  width: 480px;
+  border-radius: 120px;
+  margin: 2%;
+  overflow: hidden; }
 
-img {
+.border {
+  height: 270px;
+  width: 480px;
+  border-radius: 120px;
+  border-style: solid;
+  border: 8px black;
+  background: none;
+  display: inline;
+  z-index: 1;
+  overflow: hidden; }
+
+p {
+  margin: 1%;
+  padding: 1%;
+  font-size: 200%; }
+
+.minibackground {
   border-radius: 20px;
   border-style: solid;
   border: 2px black;
   height: inherit;
+  z-index: 0;
   width: inherit; }
 
 /*# sourceMappingURL=Shrines.css.map */
