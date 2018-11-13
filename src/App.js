@@ -38,6 +38,7 @@ class App extends Component {
           shrine={this.state.shrine}
           offerings={this.state.offerings}
           mouseMode={this.state.mouseMode}
+          deleteOffering={this.deleteOffering}
         />
         <Floor />
         <Background />
@@ -56,6 +57,7 @@ class App extends Component {
     fetch(`${apiURL}/api/v1/shrines/${shrineId}`)
     .then(res => res.json())
     .then(shrine => {
+      console.log(shrine.offerings);
       this.setState({
         shrine: shrine,
         offerings: shrine.offerings
@@ -85,7 +87,8 @@ class App extends Component {
         item_id: item.id,
         style: `{"top":"40%","left":"40%"}`
       })
-    }).then(this.loadShrine())
+    })
+    .then(() => this.loadShrine())
   }
 
   updateCoordinates = (offeringId, posX, posY) => {
@@ -99,6 +102,13 @@ class App extends Component {
         style: `{"top":${posY},"left":${posX}}`
       })
     })
+  }
+
+  deleteOffering = (id) => {
+    fetch(`http://localhost:3000/api/v1/offerings/${id}`, {
+      method: 'DELETE'
+    })
+    .then(() => this.loadShrine())
   }
 
   updateMouseMode = (mode) => {

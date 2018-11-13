@@ -2,9 +2,29 @@
   position: absolute;
   max-width: 500px;
 
-  // border: 2px solid blue;
+  .select {
+    cursor: move;
+  }
+  .delete {
+    cursor: url('http://localhost:3001/assets/img/delete.png');
+  }
+  .up {
+    // cursor: url('http://localhost:3001/assets/img/up.png', auto) !important;
+    cursor: ew-resize;
+    border: 2px solid blue;
+  }
+  .down {
+    cursor: url('http://localhost:3001/assets/img/down.png');
+  }
+
   img {
     width: 100%;
-    // border: 2px solid yellow;
+
+    &:hover {
+      filter: drop-shadow(0 0 10px #0ff);
+    }
+    &:active {
+      filter: drop-shadow(0 0 10px #ff80d5);
+    }
   }
 }
