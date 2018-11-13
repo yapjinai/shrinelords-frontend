@@ -9,8 +9,7 @@ import Editbar from './components/Editbar';
 import './assets/css/App.css'
 
 const apiURL = 'http://localhost:3000'
-let shrineId = 4
-
+let shrineId
 
 class App extends Component {
   constructor(props) {

@@ -76,7 +76,7 @@ class Offering extends Component {
         elmnt.firstChild.style.cursor = `move`
       }
       else {
-        const cursorUrl = `./assets/img/${mouseMode}.png`
+        const cursorUrl = `../../assets/img/${mouseMode}.png`
         const cursorString = `url(${cursorUrl})`
         elmnt.firstChild.style.cursor = `${cursorString}, auto`
       }
