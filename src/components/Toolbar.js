@@ -18,16 +18,20 @@ class Toolbar extends Component {
   displayMouseModeButtons = () => {
     const mouseModes = [
       {
+        mode: 'select',
+        buttonName: 'Select'
+      },
+      {
         mode: 'delete',
         buttonName: 'Delete'
       },
       {
-        mode: 'forwards',
-        buttonName: 'Bring forwards'
+        mode: 'up',
+        buttonName: 'Move up'
       },
       {
-        mode: 'backwards',
-        buttonName: 'Send backwards'
+        mode: 'down',
+        buttonName: 'Move down'
       }
     ]
     return mouseModes.map(m => {

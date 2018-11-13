@@ -37,6 +37,7 @@ class App extends Component {
           updateCoordinates={this.updateCoordinates}
           shrine={this.state.shrine}
           offerings={this.state.offerings}
+          mouseMode={this.state.mouseMode}
         />
         <Floor />
         <Background />

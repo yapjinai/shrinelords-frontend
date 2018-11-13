@@ -39,6 +39,10 @@ class Offering extends Component {
     this.getItemFromOffering()
   }
 
+  componentDidUpdate() {
+    this.setCursor()
+  }
+
 ////////////////////////////////////////////////////////////////////////
 
   getItemFromOffering = () => {
@@ -59,6 +63,15 @@ class Offering extends Component {
         style: newStyle
       })
     }
+  }
+
+  setCursor = () => {
+    console.log(this.state.elmnt);
+    const mouseMode = this.props.mouseMode
+    const cursorUrl = `./assets/img/${mouseMode}.png`
+    const cursorString = `url(${cursorUrl})`
+    // shrineDiv.style.cursor = `url(${cursorUrl})`
+    this.state.elmnt.style.cursor = `${cursorString}, auto`
   }
 
 ////////////////////////////////////////////////////////////////////////
