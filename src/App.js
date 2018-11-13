@@ -24,9 +24,6 @@ class App extends Component {
   }
 
   render() {
-    // console.table(this.state.offerings.map(o => {
-    //   return `${o.id}, ${o.zIndex}`
-    // }));
     return (
       <div className="App">
         <Editbar
@@ -83,9 +80,6 @@ class App extends Component {
     newOfferings.forEach((o, i) => {
       // if any offerings don't have z index, set them
       o.zIndex = i
-
-      // update DOM
-      // console.log(o);
     })
 
     this.updateDatabaseZIndex(newOfferings)
@@ -146,8 +140,6 @@ class App extends Component {
           zIndex: o.zIndex
         })
       })
-      .then(r => r.json())
-      .then(console.table)
     })
   }
 

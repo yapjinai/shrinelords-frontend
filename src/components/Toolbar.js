@@ -13,7 +13,6 @@ class Toolbar extends Component {
   }
 
   componentDidMount() {
-    console.log('hi');
     document.addEventListener('keyDown', this.handleKeyDown)
   }
 
@@ -83,10 +82,8 @@ class Toolbar extends Component {
   }
 
   handleKeyDown = (e) => {
-    console.log(e.key);
     switch (e.key) {
       case 'm':
-        console.log('hi');
         break;
       default:
         break;
