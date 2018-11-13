@@ -7,6 +7,7 @@ class Background extends Component {
     return (
       <div className='Background'>
         <video
+          className="shrineback"
           autoPlay
           muted
           loop
