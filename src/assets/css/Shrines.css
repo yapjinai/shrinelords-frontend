@@ -1,20 +1,25 @@
-.shrinegrid {
-  position: absolute;
-  color: white;
-  justify-content: space-around;
+.shrinescontainer {
   background-image: radial-gradient(#7b8266, #394768);
   height: 100%;
   width: 100%;
-  display: flex;
-}
+  position: fixed; }
+
+.shrinegrid {
+  left: 20%;
+  position: absolute;
+  color: white;
+  justify-content: space-around;
+  height: 100%;
+  width: 60%;
+  flex-wrap: wrap;
+  display: flex; }
 
 .minishrine {
   height: 270px;
   width: 480px;
   border-radius: 120px;
   margin: 2%;
-  overflow: hidden;
-}
+  overflow: hidden; }
 
 .border {
   height: 270px;
@@ -25,14 +30,12 @@
   background: none;
   display: inline;
   z-index: 1;
-  overflow: hidden;
-}
+  overflow: hidden; }
 
 p {
   margin: 1%;
   padding: 1%;
-  font-size: 200%;
-}
+  font-size: 200%; }
 
 .minibackground {
   border-radius: 20px;
@@ -40,7 +43,6 @@ p {
   border: 2px black;
   height: inherit;
   z-index: 0;
-  width: inherit;
-}
+  width: inherit; }
 
 /*# sourceMappingURL=Shrines.css.map */
