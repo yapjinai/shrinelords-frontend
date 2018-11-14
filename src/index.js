@@ -10,9 +10,9 @@ import { BrowserRouter as Router, Route } from 'react-router-dom'
 ReactDOM.render((
   <Router>
     <React.Fragment>
+      <Route exact path='/' component={Shrines} />
       <Route exact path='/shrines/:id' component={App} />
       <Route exact path='/about' component={About} />
-      <Route path='/' component={Shrines} />
     </React.Fragment>
   </Router>), document.getElementById('root'));
 
