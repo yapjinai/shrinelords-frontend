@@ -1,29 +1,102 @@
+.navtext {
+  width: 100%;
+  font-size: 8vmax; }
+
+.nextshrines:hover {
+  opacity: .8; }
+
+.previousshrines:hover {
+  opacity: .8; }
+
+.container {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  z-index: -4; }
+
+.nextshrines {
+  transition: .4s;
+  opacity: .1;
+  justify-content: center;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 5%;
+  background-image: radial-gradient(steelblue, white);
+  z-index: 1;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around; }
+
+.previousshrines {
+  transition: .4s;
+  opacity: .2;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 5%;
+  background-image: radial-gradient(steelblue, white);
+  z-index: 1;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around; }
+
 .Shrines {
   position: fixed;
   z-index: -5;
   background-image: radial-gradient(#7b8266, #394768);
   height: 100%;
-  width: 100%;
-}
+  width: 100%; }
 
 .shrinegrid {
-  left: 20%;
+  opacity: 1;
+  left: 10%;
+  top: 0%;
   position: absolute;
   color: white;
   justify-content: space-around;
   height: 100%;
-  width: 60%;
+  width: 80%;
   flex-wrap: wrap;
   display: flex;
-}
+  transition: .6s; }
+
+.shrinegrid_fading_in {
+  opacity: 0;
+  left: -10%;
+  top: 0%;
+  position: fixed;
+  color: white;
+  justify-content: space-around;
+  height: 100%;
+  width: 80%;
+  flex-wrap: wrap;
+  display: flex;
+  transition: .01s;
+  overflow: hidden; }
+
+.shrinegrid_fading_out {
+  opacity: 0;
+  left: 90%;
+  top: 0%;
+  position: absolute;
+  color: white;
+  justify-content: space-around;
+  height: 100%;
+  width: 80%;
+  flex-wrap: wrap;
+  display: flex;
+  transition: .4s;
+  overflow: hidden; }
 
 .minishrine {
   height: 270px;
   width: 480px;
   border-radius: 120px;
   margin: 2%;
-  overflow: hidden;
-}
+  overflow: hidden; }
 
 .border {
   height: 270px;
@@ -34,14 +107,12 @@
   background: none;
   display: inline;
   z-index: 1;
-  overflow: hidden;
-}
+  overflow: hidden; }
 
 p {
   margin: 1%;
   padding: 1%;
-  font-size: 200%;
-}
+  font-size: 200%; }
 
 .minibackground {
   border-radius: 20px;
@@ -49,7 +120,6 @@ p {
   border: 2px black;
   height: inherit;
   z-index: 0;
-  width: inherit;
-}
+  width: inherit; }
 
 /*# sourceMappingURL=Shrines.css.map */

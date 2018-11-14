@@ -7,7 +7,65 @@ const shrinesURL = 'http://localhost:3000/api/v1/shrines'
 export default class Shrines extends Component {
   state = {
     shrines: [],
-    display_shrines:[]
+    display_shrines:[],
+    gridclass: "shrinegrid"
+  }
+
+  previousShrines = () => {
+    return(
+      <div className="previousshrines" onClick={this.cycleback}>
+        <span className="navtext">{'<'}</span><span className="navtext">{'<'}</span><span className="navtext">{'<'}</span>
+      </div>
+    )
+  }
+
+  cycleback = () => {
+    this.setState({gridclass: "shrinegrid_fading_out"})
+    let start = this.state.shrines.indexOf(this.state.display_shrines[0])
+    let newstart = (Number(start)-3)
+    if(newstart<0){newstart=this.state.shrines.length+newstart}
+    let newend = (newstart+3)
+    let newslice
+    if(newend <= this.state.shrines.length){
+      newslice=this.state.shrines.slice(newstart,newend)
+    }
+    else{
+      newslice=[...this.state.shrines.slice(newstart,this.state.shrines.length),...this.state.shrines.slice(0,newend-this.state.shrines.length)]
+    }
+    let newdisplay = () => {(this.setState({
+      display_shrines: newslice,
+      gridclass: "shrinegrid"
+    }))}
+    let fadein = () => {(this.setState({
+      gridclass: "shrinegrid_fading_in"
+    }))}
+    setTimeout(fadein, 450)
+    setTimeout(newdisplay,600)
+  }
+
+  nextShrines = () => {
+    return(
+      <div className="nextshrines" onClick={this.cycleforward}>
+        <span className="navtext">{'>'}</span><span className="navtext">{'>'}</span><span className="navtext">{'>'}</span>
+      </div>
+    )
+  }
+
+  cycleforward = () => {
+    let start = this.state.shrines.indexOf(this.state.display_shrines[0])
+    let newstart = (Number(start)+3)
+    if(newstart>this.state.shrines.length){newstart=newstart-this.state.shrines.length}
+    let newend = (newstart+3)
+    let newslice
+    if(newend <= this.state.shrines.length){
+      newslice=this.state.shrines.slice(newstart,newend)
+    }
+    else{
+      newslice=[...this.state.shrines.slice(newstart,this.state.shrines.length),...this.state.shrines.slice(0,newend-this.state.shrines.length)]
+    }
+    this.setState({
+      display_shrines: newslice
+    })
   }
 
   shrinePreview = (shrine) => {
@@ -47,10 +105,14 @@ export default class Shrines extends Component {
 
   render(){
     return(
-      <div className="Shrines">
-        <div className="shrinegrid">
-          {this.state.display_shrines.map(shrine => this.shrinePreview(shrine))}
+      <div className="container">
+        {this.previousShrines()}
+        <div className="Shrines">
+          <div className={this.state.gridclass}>
+            {this.state.display_shrines.map(shrine => this.shrinePreview(shrine))}
+          </div>
         </div>
+        {this.nextShrines()}
       </div>
     )
   }
