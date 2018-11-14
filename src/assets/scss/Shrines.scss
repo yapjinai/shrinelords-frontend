@@ -2,7 +2,7 @@
   width:  100%;
   font-size: 8vmax;
 }
-
+ 
 .nextshrines:hover {
   opacity: .8;
 }
@@ -89,6 +89,36 @@
 .shrinegrid_fading_out {
   opacity: 0;
   left: 90%;
+  top: 0%;
+  position: absolute;
+  color: white;
+  justify-content: space-around;
+  height: 100%;
+  width: 80%;
+  flex-wrap: wrap;
+  display: flex;
+  transition: .4s;
+  overflow: hidden;
+}
+
+.shrinegrid_fading_in_back {
+  opacity: 0;
+  left: 120%;
+  top: 0%;
+  position: fixed;
+  color: white;
+  justify-content: space-around;
+  height: 100%;
+  width: 80%;
+  flex-wrap: wrap;
+  display: flex;
+  transition: .01s;
+  overflow: hidden;
+}
+
+.shrinegrid_fading_out_back {
+  opacity: 0;
+  left: -20%;
   top: 0%;
   position: absolute;
   color: white;
