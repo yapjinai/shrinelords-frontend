@@ -7,6 +7,7 @@ import Shrines from './containers/Shrines'
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 
+
 ReactDOM.render((
   <Router>
     <React.Fragment>
@@ -17,5 +18,3 @@ ReactDOM.render((
   </Router>), document.getElementById('root'));
 
 serviceWorker.unregister();
-
-// <Route exact path='/shrines' component={Shrines} />

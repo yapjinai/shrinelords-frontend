@@ -5,6 +5,7 @@ import Floor from './components/Floor';
 import Background from './components/Background';
 import Navbar from './components/Navbar';
 import Editbar from './components/Editbar';
+import ErrorPage from './components/ErrorPage';
 
 import './assets/css/App.css'
 
@@ -20,37 +21,44 @@ class App extends Component {
       offerings: [],
       back: {},
       items: [],
-      mouseMode: 'move'
+      mouseMode: 'move',
+      shrineExists: true
     }
   }
 
   render() {
-    console.log(this.state.back.video);
-    return (
-      <div className="App">
-        <Editbar
-          items={this.state.items}
-          updateMouseMode={this.updateMouseMode}
-          createOffering={this.createOffering}
-        />
-        <Navbar />
-        <Doors />
-        <Shrine
-          updateCoordinates={this.updateCoordinates}
-          shrine={this.state.shrine}
-          offerings={this.state.offerings}
+    if (this.state.shrineExists) {
+      return (
+        <div className="App">
+          <Editbar
+            items={this.state.items}
+            updateMouseMode={this.updateMouseMode}
+            createOffering={this.createOffering}
+          />
+          <Navbar />
+          <Doors />
+          <Shrine
+            updateCoordinates={this.updateCoordinates}
+            shrine={this.state.shrine}
+            offerings={this.state.offerings}
 
-          mouseMode={this.state.mouseMode}
-          deleteOffering={this.deleteOffering}
-          moveUp={this.moveUp}
-          moveDown={this.moveDown}
-          moveTop={this.moveTop}
-          moveBottom={this.moveBottom}
-        />
-        <Floor />
-        {!!this.state.back.video ? <Background back={this.state.back.video}/> : null}
-      </div>
-    );
+            mouseMode={this.state.mouseMode}
+            deleteOffering={this.deleteOffering}
+            moveUp={this.moveUp}
+            moveDown={this.moveDown}
+            moveTop={this.moveTop}
+            moveBottom={this.moveBottom}
+          />
+          <Floor />
+          {!!this.state.back.video ? <Background back={this.state.back.video}/> : null}
+        </div>
+      )
+    }
+    else {
+      return (
+        <ErrorPage />
+      )
+    }
   }
 
   componentDidMount() {
@@ -65,12 +73,23 @@ class App extends Component {
     fetch(`${apiURL}/api/v1/shrines/${shrineId}`)
     .then(res => res.json())
     .then(shrine => {
-      this.setState({
-        shrine: shrine,
-        offerings: shrine.offerings,
-        back: shrine.back
-      }, () => this.arrangeOfferingsByZIndex(this.state.offerings))
+      if (shrine) {
+        this.loadShrineOfferings(shrine)
+      }
+      else {
+        this.setState({
+          shrineExists: false
+        })
+      }
     })
+  }
+
+  loadShrineOfferings = (shrine) => {
+    this.setState({
+      shrine: shrine,
+      offerings: shrine.offerings,
+      back: shrine.back
+    }, () => this.arrangeOfferingsByZIndex(this.state.offerings))
   }
 
   handleKeyDown = (e) => {
