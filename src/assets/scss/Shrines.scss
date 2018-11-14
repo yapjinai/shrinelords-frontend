@@ -58,7 +58,9 @@
 }
 
 .shrinegrid {
+  opacity: 1;
   left: 10%;
+  top: 0%;
   position: absolute;
   color: white;
   justify-content: space-around;
@@ -66,6 +68,37 @@
   width: 80%;
   flex-wrap: wrap;
   display: flex;
+  transition: .6s;
+}
+
+.shrinegrid_fading_in {
+  opacity: 0;
+  left: -10%;
+  top: 0%;
+  position: fixed;
+  color: white;
+  justify-content: space-around;
+  height: 100%;
+  width: 80%;
+  flex-wrap: wrap;
+  display: flex;
+  transition: .01s;
+  overflow: hidden;
+}
+
+.shrinegrid_fading_out {
+  opacity: 0;
+  left: 90%;
+  top: 0%;
+  position: absolute;
+  color: white;
+  justify-content: space-around;
+  height: 100%;
+  width: 80%;
+  flex-wrap: wrap;
+  display: flex;
+  transition: .4s;
+  overflow: hidden;
 }
 
 .minishrine {

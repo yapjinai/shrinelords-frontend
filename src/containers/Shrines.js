@@ -7,7 +7,8 @@ const shrinesURL = 'http://localhost:3000/api/v1/shrines'
 export default class Shrines extends Component {
   state = {
     shrines: [],
-    display_shrines:[]
+    display_shrines:[],
+    gridclass: "shrinegrid"
   }
 
   previousShrines = () => {
@@ -19,6 +20,7 @@ export default class Shrines extends Component {
   }
 
   cycleback = () => {
+    this.setState({gridclass: "shrinegrid_fading_out"})
     let start = this.state.shrines.indexOf(this.state.display_shrines[0])
     let newstart = (Number(start)-3)
     if(newstart<0){newstart=this.state.shrines.length+newstart}
@@ -30,9 +32,15 @@ export default class Shrines extends Component {
     else{
       newslice=[...this.state.shrines.slice(newstart,this.state.shrines.length),...this.state.shrines.slice(0,newend-this.state.shrines.length)]
     }
-    this.setState({
-      display_shrines: newslice
-    })
+    let newdisplay = () => {(this.setState({
+      display_shrines: newslice,
+      gridclass: "shrinegrid"
+    }))}
+    let fadein = () => {(this.setState({
+      gridclass: "shrinegrid_fading_in"
+    }))}
+    setTimeout(fadein, 450)
+    setTimeout(newdisplay,600)
   }
 
   nextShrines = () => {
@@ -100,7 +108,7 @@ export default class Shrines extends Component {
       <div className="container">
         {this.previousShrines()}
         <div className="Shrines">
-          <div className="shrinegrid">
+          <div className={this.state.gridclass}>
             {this.state.display_shrines.map(shrine => this.shrinePreview(shrine))}
           </div>
         </div>
