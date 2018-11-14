@@ -37,7 +37,7 @@ export default class Shrines extends Component {
     )}
   }
 
-  componentWillMount(){
+  componentDidMount(){
     fetch(shrinesURL)
     .then(res=>res.json()).then(shrines => this.setState({
       shrines:shrines,
@@ -47,7 +47,7 @@ export default class Shrines extends Component {
 
   render(){
     return(
-      <div className="shrinescontainer">
+      <div className="Shrines">
         <div className="shrinegrid">
           {this.state.display_shrines.map(shrine => this.shrinePreview(shrine))}
         </div>

@@ -1,8 +1,10 @@
-.shrinescontainer {
+.Shrines {
+  position: fixed;
+  z-index: -5;
+
   background-image: radial-gradient(#7b8266, #394768);
   height: 100%;
   width: 100%;
-  position: fixed;
 }
 
 .shrinegrid {

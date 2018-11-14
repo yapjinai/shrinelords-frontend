@@ -6,7 +6,7 @@ const Linkbar = (props) => {
   return(
     <div className={props.className}>
       <div className="linkcontainer">
-        <Link to="/shrines">
+        <Link to="/">
           <img
             className="linkbarlink"
             alt="linkbarlink"

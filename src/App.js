@@ -25,6 +25,7 @@ class App extends Component {
   }
 
   render() {
+    console.log(this.state.back.video);
     return (
       <div className="App">
         <Editbar

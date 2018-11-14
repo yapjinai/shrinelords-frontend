@@ -7,5 +7,11 @@
 
   flex-basis: 1;
 
+  &:hover {
+    filter: drop-shadow(0 0 10px #0ff);
+  }
+  &:active {
+    filter: drop-shadow(0 0 10px #ff80d5);
+  }
   // border: 2px solid yellow;
 }
