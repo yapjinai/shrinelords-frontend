@@ -1,8 +1,8 @@
 .Editbar {
+  z-index: 1;
   position: fixed;
   height: 80vh;
   width: 20vw;
-  z-index: 1;
   top: 10vh;
   left: -18vw;
   background-image: radial-gradient(#ad8fa3, #394768);
