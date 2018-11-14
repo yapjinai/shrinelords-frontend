@@ -10,6 +10,56 @@ export default class Shrines extends Component {
     display_shrines:[]
   }
 
+  previousShrines = () => {
+    return(
+      <div className="previousshrines" onClick={this.cycleback}>
+        <span className="navtext">{'<'}</span><span className="navtext">{'<'}</span><span className="navtext">{'<'}</span>
+      </div>
+    )
+  }
+
+  cycleback = () => {
+    let start = this.state.shrines.indexOf(this.state.display_shrines[0])
+    let newstart = (Number(start)-3)
+    if(newstart<0){newstart=this.state.shrines.length+newstart}
+    let newend = (newstart+3)
+    let newslice
+    if(newend <= this.state.shrines.length){
+      newslice=this.state.shrines.slice(newstart,newend)
+    }
+    else{
+      newslice=[...this.state.shrines.slice(newstart,this.state.shrines.length),...this.state.shrines.slice(0,newend-this.state.shrines.length)]
+    }
+    this.setState({
+      display_shrines: newslice
+    })
+  }
+
+  nextShrines = () => {
+    return(
+      <div className="nextshrines" onClick={this.cycleforward}>
+        <span className="navtext">{'>'}</span><span className="navtext">{'>'}</span><span className="navtext">{'>'}</span>
+      </div>
+    )
+  }
+
+  cycleforward = () => {
+    let start = this.state.shrines.indexOf(this.state.display_shrines[0])
+    let newstart = (Number(start)+3)
+    if(newstart>this.state.shrines.length){newstart=newstart-this.state.shrines.length}
+    let newend = (newstart+3)
+    let newslice
+    if(newend <= this.state.shrines.length){
+      newslice=this.state.shrines.slice(newstart,newend)
+    }
+    else{
+      newslice=[...this.state.shrines.slice(newstart,this.state.shrines.length),...this.state.shrines.slice(0,newend-this.state.shrines.length)]
+    }
+    this.setState({
+      display_shrines: newslice
+    })
+  }
+
   shrinePreview = (shrine) => {
     // const videoURL = '../assets/video/sparkling_ocean_waves.mp4'
     if(!!shrine.back){
@@ -47,10 +97,14 @@ export default class Shrines extends Component {
 
   render(){
     return(
-      <div className="Shrines">
-        <div className="shrinegrid">
-          {this.state.display_shrines.map(shrine => this.shrinePreview(shrine))}
+      <div className="container">
+        {this.previousShrines()}
+        <div className="Shrines">
+          <div className="shrinegrid">
+            {this.state.display_shrines.map(shrine => this.shrinePreview(shrine))}
+          </div>
         </div>
+        {this.nextShrines()}
       </div>
     )
   }

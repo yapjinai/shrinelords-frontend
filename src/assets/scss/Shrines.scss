@@ -1,19 +1,69 @@
+.navtext {
+  width:  100%;
+  font-size: 8vmax;
+}
+
+.nextshrines:hover {
+  opacity: .8;
+}
+
+.previousshrines:hover {
+  opacity: .8;
+}
+
+.container {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  z-index: -4;
+}
+
+.nextshrines {
+  transition: .4s;
+  opacity: .1;
+  justify-content: center;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 5%;
+  background-image: radial-gradient(steelblue, white);
+  z-index: 1;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.previousshrines {
+  transition: .4s;
+  opacity: .2;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 5%;
+  background-image: radial-gradient(steelblue, white);
+  z-index: 1;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
 .Shrines {
   position: fixed;
   z-index: -5;
-
   background-image: radial-gradient(#7b8266, #394768);
   height: 100%;
   width: 100%;
 }
 
 .shrinegrid {
-  left: 20%;
+  left: 10%;
   position: absolute;
   color: white;
   justify-content: space-around;
   height: 100%;
-  width: 60%;
+  width: 80%;
   flex-wrap: wrap;
   display: flex;
 }
