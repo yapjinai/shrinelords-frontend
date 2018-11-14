@@ -65,9 +65,12 @@ export default class Creation extends Component {
   render(){
     return(
       <div>
-        <p className="creationtext">This is the creation page.</p>
-        <button onClick={this.previousback}>Previous shrine setting</button>
-        <button onClick={this.nextback}>Next shrine setting</button>
+        <center>
+          <p className="creationtext">Create a shrine...</p>
+          <input type='text' placeholder='shrine name'></input><br></br>
+          <button className="setting" onClick={this.previousback}>Previous shrine setting</button>
+          <button className="setting" onClick={this.nextback}>Next shrine setting</button>
+        </center>
         {this.state.backs.length ? this.background(this.state.backs[this.state.back_index].video) : null}
       </div>
     )
