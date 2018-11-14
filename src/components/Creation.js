@@ -36,10 +36,10 @@ export default class Creation extends Component {
       backvideo.load()
       backvideo.play()
     }
-    let newindex = this.state.back_index-1
-    debugger
-    if(newindex ===(-1)){newindex=this.state.backs.length-1}
-    this.setState({back_index: this.state.back_index-1}, load_and_play())
+    let newindex
+    if(this.state.back_index===0){newindex = this.state.backs.length-1}
+    else{newindex=this.state.back_index-1}
+    this.setState({back_index: newindex}, load_and_play())
   }
 
 
@@ -52,6 +52,7 @@ export default class Creation extends Component {
           className="shrineback"
           autoPlay
           muted
+          loop
         >
           <source
             src={back}
