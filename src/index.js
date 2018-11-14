@@ -8,16 +8,15 @@ import Creation from './components/Creation'
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 
+
 ReactDOM.render((
   <Router>
     <React.Fragment>
+      <Route exact path='/' component={Shrines} />
       <Route exact path='/shrines/:id' component={App} />
       <Route exact path='/about' component={About} />
-      <Route exact path='/' component={Shrines} />
       <Route exact path='/creation' component={Creation} />
     </React.Fragment>
   </Router>), document.getElementById('root'));
 
 serviceWorker.unregister();
-
-// <Route exact path='/shrines' component={Shrines} />
