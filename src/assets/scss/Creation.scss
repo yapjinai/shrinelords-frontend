@@ -1,0 +1,19 @@
+.creationtext {
+  color: steelblue;
+  text-shadow: 2px 2px 2px white;
+}
+
+.Background {
+  position: fixed;
+  z-index: -2;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.shrineback {
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: fill;
+}

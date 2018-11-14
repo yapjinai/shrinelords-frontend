@@ -20,10 +20,42 @@ export default class Shrines extends Component {
   }
 
   cycleback = () => {
-    this.setState({gridclass: "shrinegrid_fading_out"})
+    this.setState({gridclass: "shrinegrid_fading_out_back"})
     let start = this.state.shrines.indexOf(this.state.display_shrines[0])
     let newstart = (Number(start)-3)
     if(newstart<0){newstart=this.state.shrines.length+newstart}
+    let newend = (newstart+3)
+    let newslice
+    if(newend <= this.state.shrines.length){
+      newslice=this.state.shrines.slice(newstart,newend)
+    }
+    else{
+      newslice=[...this.state.shrines.slice(newstart,this.state.shrines.length),...this.state.shrines.slice(0,newend-this.state.shrines.length)]
+    }
+    let newdisplay = () => {(this.setState({
+      display_shrines: newslice,
+      gridclass: "shrinegrid"
+    }))}
+    let fadein = () => {(this.setState({
+      gridclass: "shrinegrid_fading_in_back"
+    }))}
+    setTimeout(fadein, 450)
+    setTimeout(newdisplay,600)
+  }
+
+  nextShrines = () => {
+    return(
+      <div className="nextshrines" onClick={this.cycleforward}>
+        <span className="navtext">{'>'}</span><span className="navtext">{'>'}</span><span className="navtext">{'>'}</span>
+      </div>
+    )
+  }
+
+  cycleforward = () => {
+    this.setState({gridclass: "shrinegrid_fading_out"})
+    let start = this.state.shrines.indexOf(this.state.display_shrines[0])
+    let newstart = (Number(start)+3)
+    if(newstart>this.state.shrines.length){newstart=newstart-this.state.shrines.length}
     let newend = (newstart+3)
     let newslice
     if(newend <= this.state.shrines.length){
@@ -41,31 +73,6 @@ export default class Shrines extends Component {
     }))}
     setTimeout(fadein, 450)
     setTimeout(newdisplay,600)
-  }
-
-  nextShrines = () => {
-    return(
-      <div className="nextshrines" onClick={this.cycleforward}>
-        <span className="navtext">{'>'}</span><span className="navtext">{'>'}</span><span className="navtext">{'>'}</span>
-      </div>
-    )
-  }
-
-  cycleforward = () => {
-    let start = this.state.shrines.indexOf(this.state.display_shrines[0])
-    let newstart = (Number(start)+3)
-    if(newstart>this.state.shrines.length){newstart=newstart-this.state.shrines.length}
-    let newend = (newstart+3)
-    let newslice
-    if(newend <= this.state.shrines.length){
-      newslice=this.state.shrines.slice(newstart,newend)
-    }
-    else{
-      newslice=[...this.state.shrines.slice(newstart,this.state.shrines.length),...this.state.shrines.slice(0,newend-this.state.shrines.length)]
-    }
-    this.setState({
-      display_shrines: newslice
-    })
   }
 
   shrinePreview = (shrine) => {
