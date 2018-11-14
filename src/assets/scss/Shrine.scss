@@ -1,5 +1,7 @@
 .Shrine {
+  position: relative;
+  z-index: 0;
   height: 100vh;
   width: 100vw;
-  // z-index: -1;
+  // opacity: .99;
 }

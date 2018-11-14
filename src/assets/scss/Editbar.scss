@@ -1,6 +1,7 @@
 $editbar-width: 20vw;
 
 .Editbar {
+  position: relative;
   z-index: 1;
   position: fixed;
   height: 80vh;
