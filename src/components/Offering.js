@@ -84,16 +84,9 @@ class Offering extends Component {
     if (this.state.elmnt) {
       const mouseMode = this.props.mouseMode
       const elmnt = this.state.elmnt
-      // elmnt.firstChild.setAttribute('class', mouseMode)
-
-      // if (mouseMode === 'move') {
-      //   elmnt.firstChild.style.cursor = `move`
-      // }
-      // else {
-        const cursorUrl = `../../assets/img/${mouseMode}.png`
-        const cursorString = `url(${cursorUrl})`
-        elmnt.firstChild.style.cursor = `${cursorString}, auto`
-      // }
+      const cursorUrl = `../../assets/img/tools/${mouseMode}-cursor.png`
+      const cursorString = `url(${cursorUrl})`
+      elmnt.firstChild.style.cursor = `${cursorString}, auto`
     }
   }
 

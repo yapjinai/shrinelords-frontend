@@ -40,6 +40,10 @@ class Toolbar extends Component {
         mode: 'bottom',
         buttonName: 'Move to bottom (←)'
       },
+      {
+        mode: 'lighter',
+        buttonName: 'Lighter (F)'
+      },
     ]
     return mouseModes.map(m => {
       return (
@@ -47,7 +51,7 @@ class Toolbar extends Component {
           key={m.mode}
         >
           <img
-            src={`../../assets/img/${m.mode}.png`}
+            src={`../../assets/img/tools/${m.mode}-icon.png`}
             name={m.mode}
             alt={m.buttonName}
             onClick={this.handleClick}
@@ -68,7 +72,7 @@ class Toolbar extends Component {
     e.preventDefault()
     this.props.updateMouseMode(e.target.name)
   }
-  
+
   handleMouseOver = (e) => {
     const infoDiv = e.target.nextSibling
     infoDiv.classList.add('display')

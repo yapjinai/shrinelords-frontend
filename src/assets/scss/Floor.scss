@@ -5,12 +5,9 @@
   height: 100%;
   bottom: 0;
 
-  // opacity: .8;
-
   perspective: 2300px;
   perspective-origin: top;
 
-  // border: 2px solid blue;
 
   #floor {
     position: absolute;
@@ -23,9 +20,13 @@
 
     transition: 2000ms;
 
-    // border: 2px solid red;
-
+    ////////// DELETE LATER
+    // transform: rotateX(80deg);
+    ////////// DELETE LATER
   }
+  ////////// DELETE LATER
+  // z-index: -1;
+  ////////// DELETE LATER
 
   .rotated {
     transform: rotateX(80deg);
