@@ -1,13 +1,13 @@
 $editbar-width: 20vw;
 
 .Editbar {
-  position: relative;
   z-index: 1;
   position: fixed;
   height: 80vh;
   width: $editbar-width;
+  // left: 0 - ($editbar-width - 2);
+
   top: 10vh;
-  left: 0 - ($editbar-width - 2);
   background-image: radial-gradient(#ad8fa3, #394768);
   transition: .75s;
 
@@ -15,6 +15,12 @@ $editbar-width: 20vw;
 
   // border: 1px solid black;
   border-radius: 8px;
+
+
+  input {
+    width: 90%;
+    text-align: left;
+  }
 
   div {
     margin: 5%;

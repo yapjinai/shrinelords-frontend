@@ -179,7 +179,6 @@ class App extends Component {
   updateDatabaseZIndex = (newOfferings) => {
     // update database
     newOfferings.forEach(o => {
-      console.log(o.zIndex);
       fetch(`${apiURL}/api/v1/offerings/${o.id}`, {
         method: 'PATCH',
         headers: {

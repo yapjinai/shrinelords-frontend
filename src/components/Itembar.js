@@ -14,7 +14,10 @@ class Itembar extends Component {
   displayItems = () => {
     return this.props.items.map(item => {
       return (
-        <ItembarItem createOffering={this.props.createOffering} key={1000+item.id} item={item} />
+        <ItembarItem
+          createOffering={this.props.createOffering}
+          key={item.id}
+          item={item} />
       )
     })
   }

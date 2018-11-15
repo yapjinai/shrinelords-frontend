@@ -10,7 +10,7 @@ const Linkbar = (props) => {
           <img
             className="linkbarlink"
             alt="linkbarlink"
-            src="https://image.flaticon.com/icons/png/512/49/49011.png"
+            src="../assets/img/torii.png"
           />
         </Link>
       </div>

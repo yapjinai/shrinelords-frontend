@@ -39,11 +39,7 @@ class Toolbar extends Component {
       {
         mode: 'bottom',
         buttonName: 'Move to bottom (←)'
-      },
-      {
-        mode: 'lighter',
-        buttonName: 'Lighter (F)'
-      },
+      }
     ]
     return mouseModes.map(m => {
       return (

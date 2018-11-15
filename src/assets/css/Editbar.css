@@ -1,14 +1,16 @@
 .Editbar {
-  position: relative;
   z-index: 1;
   position: fixed;
   height: 80vh;
   width: 20vw;
   top: 10vh;
-  left: -18vw;
   background-image: radial-gradient(#ad8fa3, #394768);
   transition: 0.75s;
   border-radius: 8px;
+}
+.Editbar input {
+  width: 90%;
+  text-align: left;
 }
 .Editbar div {
   margin: 5%;
