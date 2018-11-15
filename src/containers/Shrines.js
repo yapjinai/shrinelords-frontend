@@ -82,7 +82,7 @@ export default class Shrines extends Component {
       <React.Fragment key={1500+shrine.id}>
         <Link to={`/shrines/${shrine.id}`}>
           <div className="shrineviewer">
-            <center><p>Shrine #{shrine.id}</p></center>
+            <center><p>{shrine.name}</p></center>
             <div className="minishrine">
             <video
               className="minibackground"
