@@ -14,7 +14,7 @@ export default class Shrines extends Component {
   previousShrines = () => {
     return(
       <div className="previousshrines" onClick={this.cycleback}>
-        <span className="navtext">{'<'}</span><span className="navtext">{'<'}</span><span className="navtext">{'<'}</span>
+        <span className="navtext">{'<'}</span>
       </div>
     )
   }
@@ -46,7 +46,7 @@ export default class Shrines extends Component {
   nextShrines = () => {
     return(
       <div className="nextshrines" onClick={this.cycleforward}>
-        <span className="navtext">{'>'}</span><span className="navtext">{'>'}</span><span className="navtext">{'>'}</span>
+        <span className="navtext">{'>'}</span>
       </div>
     )
   }

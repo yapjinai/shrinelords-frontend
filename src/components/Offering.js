@@ -33,13 +33,14 @@ class Offering extends Component {
         src={this.state.item.image}
         alt={this.state.item.name}
         />
-        <h1 style={{color: 'white', position: 'absolute', top: 0}}>
-        {offering ? offering.zIndex : null}
-        </h1>
       </div>
     )
   }
 
+  // <h1 style={{color: 'white', position: 'absolute', top: 0}}>
+  // {offering ? offering.zIndex : null}
+  // </h1>
+  
   // {offering ? offering.id : null},
 
   componentDidMount() {
