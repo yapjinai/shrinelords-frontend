@@ -1,5 +1,5 @@
-import React, { Component,PureComponent } from 'react'
-import Background from './Background'
+import React, { Component } from 'react'
+// import Background from './Background'
 import '../assets/css/Creation.css'
 
 const backsURL = "http://localhost:3000/api/v1/backs"

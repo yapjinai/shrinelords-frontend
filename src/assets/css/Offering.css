@@ -2,6 +2,11 @@
   position: absolute;
   max-width: 500px;
 }
+.Offering h1 {
+  position: absolute;
+  left: 50%;
+  filter: drop-shadow(0 0 5px red);
+}
 .Offering .select {
   cursor: move;
 }

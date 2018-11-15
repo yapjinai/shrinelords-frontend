@@ -1,4 +1,10 @@
 .Offering {
+  h1 {
+    position: absolute;
+    left: 50%;
+    filter: drop-shadow(0 0 5px red);
+  }
+
   position: absolute;
   max-width: 500px;
 
