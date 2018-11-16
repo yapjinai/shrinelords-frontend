@@ -20,7 +20,7 @@ export default class Shrines extends Component {
   }
 
   cycleback = () => {
-    this.setState({gridclass: "shrinegrid_fading_out_back"})
+    this.setState({gridclass: "shrinegrid_fading_out"})
     let start = this.state.shrines.indexOf(this.state.display_shrines[0])
     let newstart = (Number(start)-3)
     if(newstart<0){newstart=this.state.shrines.length+newstart}
@@ -37,7 +37,7 @@ export default class Shrines extends Component {
       gridclass: "shrinegrid"
     }))}
     let fadein = () => {(this.setState({
-      gridclass: "shrinegrid_fading_in_back"
+      gridclass: "shrinegrid_fading_in"
     }))}
     setTimeout(fadein, 450)
     setTimeout(newdisplay,600)
@@ -52,7 +52,7 @@ export default class Shrines extends Component {
   }
 
   cycleforward = () => {
-    this.setState({gridclass: "shrinegrid_fading_out"})
+    this.setState({gridclass: "shrinegrid_fading_out_back"})
     let start = this.state.shrines.indexOf(this.state.display_shrines[0])
     let newstart = (Number(start)+3)
     if(newstart>this.state.shrines.length){newstart=newstart-this.state.shrines.length}
@@ -69,7 +69,7 @@ export default class Shrines extends Component {
       gridclass: "shrinegrid"
     }))}
     let fadein = () => {(this.setState({
-      gridclass: "shrinegrid_fading_in"
+      gridclass: "shrinegrid_fading_in_back"
     }))}
     setTimeout(fadein, 450)
     setTimeout(newdisplay,600)
