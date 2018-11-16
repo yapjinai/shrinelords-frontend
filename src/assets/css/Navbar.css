@@ -12,4 +12,14 @@
     overflow-x: hidden; /* Disable horizontal scroll */
     transition: .75s; /* 0.5 second transition effect to slide in the sidenav */
     opacity: .6;
+    align-items: center;
+}
+
+.compass {
+  max-width: 100%;
+  max-height: 100%;
+  align-items: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
