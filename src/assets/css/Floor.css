@@ -6,7 +6,6 @@
   bottom: 0;
   perspective: 2300px;
   perspective-origin: top;
-  z-index: -1;
 }
 .Floor #floor {
   position: absolute;
@@ -16,7 +15,6 @@
   left: 0;
   transform-origin: bottom center;
   transition: 2000ms;
-  transform: rotateX(80deg);
 }
 .Floor .rotated {
   transform: rotateX(80deg);
