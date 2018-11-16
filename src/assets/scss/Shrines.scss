@@ -23,6 +23,26 @@ text-decoration: inherit;
   z-index: -4;
 }
 
+.to-creation {
+  left: 10%;
+  width: 10%;
+  position: fixed;
+  bottom: 0%;
+  font-size: 350%;
+  color: whitesmoke;
+  text-shadow: 2px 2px 2px black;
+}
+
+.to-about {
+  left: 80%;
+  width: 10%;
+  position: fixed;
+  bottom: 0%;
+  font-size: 350%;
+  color: whitesmoke;
+  text-shadow: 2px 2px 2px black;
+}
+
 .nextshrines {
   transition: .4s;
   opacity: .1;

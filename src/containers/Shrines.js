@@ -102,6 +102,26 @@ export default class Shrines extends Component {
     )}
   }
 
+  toAbout = () => {
+    return(
+      <div className="to-about">
+        <Link to="/about">
+          About
+        </Link>
+      </div>
+    )
+  }
+
+  toCreation = () => {
+    return(
+      <div className="to-creation">
+        <Link to="/creation">
+          Create
+        </Link>
+      </div>
+    )
+  }
+
   componentDidMount(){
     fetch(shrinesURL)
     .then(res=>res.json()).then(shrines => this.setState({
@@ -114,12 +134,14 @@ export default class Shrines extends Component {
     return(
       <div className="container">
         {this.previousShrines()}
+        {this.toAbout()}
         <div className="Shrines">
           <div className={this.state.gridclass}>
             {this.state.display_shrines.map(shrine => this.shrinePreview(shrine))}
           </div>
         </div>
         {this.nextShrines()}
+        {this.toCreation()}
       </div>
     )
   }
