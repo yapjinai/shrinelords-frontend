@@ -3,6 +3,7 @@
   position: fixed;
   height: 80vh;
   width: 20vw;
+  left: -18vw;
   top: 10vh;
   background-image: radial-gradient(#ad8fa3, #394768);
   transition: 0.75s;

@@ -48,16 +48,17 @@ export default class Editbar extends Component {
 ///////////////////////////////////////
 
   handleChange = (e) => {
+    const newFilteredItems = this.state.originalItems.filter(i => {
+      const nameWithSpaces = i.name.split('-').join(' ').toLowerCase()
+
+      return (
+        nameWithSpaces.includes(e.target.value.toLowerCase()) ||
+        i.tags.includes(e.target.value.toLowerCase())
+      )
+    })
     this.setState({
       query: e.target.value,
-      filteredItems: this.state.originalItems.filter(i => {
-        const nameWithSpaces = i.name.split('-').join(' ').toLowerCase()
-
-        return (
-          nameWithSpaces.includes(e.target.value.toLowerCase()) ||
-          i.tags.includes(e.target.value.toLowerCase())
-        )
-      })
+      filteredItems: newFilteredItems
     })
   }
 }

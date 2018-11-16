@@ -29,12 +29,12 @@ class Toolbar extends Component {
         buttonName: 'Move up (↑)'
       },
       {
-        mode: 'down',
-        buttonName: 'Move down (↓)'
-      },
-      {
         mode: 'top',
         buttonName: 'Move to top (→)'
+      },
+      {
+        mode: 'down',
+        buttonName: 'Move down (↓)'
       },
       {
         mode: 'bottom',
