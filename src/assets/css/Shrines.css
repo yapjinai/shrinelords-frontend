@@ -25,7 +25,8 @@ a {
   bottom: 0%;
   font-size: 350%;
   color: whitesmoke;
-  text-shadow: 2px 2px 2px black; }
+  text-shadow: 2px 2px 2px black;
+  font-family: 'Federant'; }
 
 .to-about {
   left: 80%;
@@ -34,7 +35,8 @@ a {
   bottom: 0%;
   font-size: 350%;
   color: whitesmoke;
-  text-shadow: 2px 2px 2px black; }
+  text-shadow: 2px 2px 2px black;
+  font-family: 'Federant'; }
 
 .nextshrines {
   transition: .4s;
@@ -70,7 +72,8 @@ a {
   z-index: -5;
   background-image: radial-gradient(#7b8266, #394768);
   height: 100%;
-  width: 100%; }
+  width: 100%;
+  font-family: 'Federant'; }
 
 .shrinegrid {
   opacity: 1;

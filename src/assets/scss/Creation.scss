@@ -6,6 +6,7 @@ $width: 15%;
 
 textarea {
   resize: none;
+  font-family: 'Federant';
 }
 
 input,
@@ -14,6 +15,7 @@ textarea {
   background: none;
   color: $muted-color;
   font-size: 18px;
+  font-family: 'Federant';
   padding: 10px 10px 10px 5px;
   display: block;
   width: $width;
@@ -39,6 +41,7 @@ textarea {
   text-shadow: 2px 2px 2px black;
   padding-bottom: 0px;
   margin-bottom: 0px;
+  font-family: 'Federant';
 }
 
 .setting {

@@ -140,8 +140,8 @@ export default class Shrines extends Component {
             {this.state.display_shrines.map(shrine => this.shrinePreview(shrine))}
           </div>
         </div>
-        {this.nextShrines()}
         {this.toCreation()}
+        {this.nextShrines()}
       </div>
     )
   }
