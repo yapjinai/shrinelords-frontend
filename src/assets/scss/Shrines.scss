@@ -1,8 +1,13 @@
+a {
+color: inherit;
+text-decoration: inherit;
+}
+
 .navtext {
   width:  100%;
   font-size: 8vmax;
 }
- 
+
 .nextshrines:hover {
   opacity: .8;
 }
@@ -164,4 +169,9 @@ p {
   height: inherit;
   z-index: 0;
   width: inherit;
+}
+
+.shrineviewer {
+  color: black;
+  text-shadow: 1px 2px 3px white;
 }
