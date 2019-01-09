@@ -7,7 +7,7 @@ class Floor extends Component {
       <div className='Floor'>
         <img
           id='floor'
-          src='http://localhost:3001/assets/img/marble.jpeg'
+          src='../../assets/img/marble.jpeg'
           alt='floor'
         />
       </div>
