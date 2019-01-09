@@ -10,7 +10,7 @@ import ErrorPage from './components/ErrorPage';
 import './assets/css/App.css'
 
 // const apiURL = 'http://localhost:3000'
-const apiURL = 'http://shrinelords-api.herokuapp.com'
+const apiURL = 'https://shrinelords-api.herokuapp.com'
 const shrineId = 1
 
 class App extends Component {
