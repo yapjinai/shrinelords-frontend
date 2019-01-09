@@ -10,12 +10,13 @@ import ErrorPage from './components/ErrorPage';
 import './assets/css/App.css'
 
 const apiURL = 'http://localhost:3000'
-let shrineId
+const shrineId = 30
 
 class App extends Component {
   constructor(props) {
+    console.log('hi');
     super(props)
-    shrineId = props.match.params.id
+    // shrineId = props.match.params.id
     this.state = {
       shrine: {},
       offerings: [],
@@ -35,7 +36,6 @@ class App extends Component {
             updateMouseMode={this.updateMouseMode}
             createOffering={this.createOffering}
           />
-          <Navbar />
           <Doors />
           <Shrine
             updateCoordinates={this.updateCoordinates}
