@@ -12,6 +12,10 @@
 .Editbar input {
   width: 90%;
   text-align: left;
+  border: none;
+  outline: none;
+  background: transparent;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 .Editbar div {
   margin: 5%;

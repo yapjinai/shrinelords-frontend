@@ -20,6 +20,14 @@ $editbar-width: 20vw;
   input {
     width: 90%;
     text-align: left;
+    border: none;
+    outline: none;
+    background: transparent;
+
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    // &:focus {
+    //   border-bottom: 1px solid rgba(0,0,0,0.1);
+    // }
   }
 
   div {
