@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import '../assets/css/Offering.css'
 
 class Offering extends Component {
+  const apiURL = 'https://shrinelords-api.herokuapp.com'
+
   constructor(props) {
     super(props)
     this.state = {
@@ -40,7 +42,7 @@ class Offering extends Component {
   // <h1 style={{color: 'white', position: 'absolute', top: 0}}>
   // {offering ? offering.zIndex : null}
   // </h1>
-  
+
   // {offering ? offering.id : null},
 
   componentDidMount() {
@@ -57,7 +59,7 @@ class Offering extends Component {
 ////////////////////////////////////////////////////////////////////////
 
   getItemFromOffering = () => {
-    fetch(`http://localhost:3000/api/v1/offerings/${this.props.offering.id}`)
+    fetch(`${apiURL}/api/v1/offerings/${this.props.offering.id}`)
     .then(res => res.json())
     .then(offering => {
       this.setState({

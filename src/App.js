@@ -15,7 +15,6 @@ const shrineId = 1
 
 class App extends Component {
   constructor(props) {
-    console.log('hi');
     super(props)
     // shrineId = props.match.params.id
     this.state = {
@@ -71,6 +70,7 @@ class App extends Component {
   //////////////////////////////////
 
   loadShrine = () => {
+    console.log(`${apiURL}/api/v1/shrines/${shrineId}`);
     fetch(`${apiURL}/api/v1/shrines/${shrineId}`)
     .then(res => res.json())
     .then(shrine => {
