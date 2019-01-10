@@ -210,7 +210,7 @@ class App extends Component {
   }
 
   deleteOffering = (offering) => {
-    fetch(`http://localhost:3000/api/v1/offerings/${offering.id}`, {
+    fetch(`${apiURL}/api/v1/offerings/${offering.id}`, {
       method: 'DELETE'
     })
     .then(() => this.loadShrine())
