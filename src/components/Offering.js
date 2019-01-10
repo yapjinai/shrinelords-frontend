@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import '../assets/css/Offering.css'
 
-class Offering extends Component {
-  const apiURL = 'https://shrinelords-api.herokuapp.com'
+const apiURL = 'https://shrinelords-api.herokuapp.com'
 
+class Offering extends Component {
   constructor(props) {
     super(props)
     this.state = {

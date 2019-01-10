@@ -70,7 +70,6 @@ class App extends Component {
   //////////////////////////////////
 
   loadShrine = () => {
-    console.log(`${apiURL}/api/v1/shrines/${shrineId}`);
     fetch(`${apiURL}/api/v1/shrines/${shrineId}`)
     .then(res => res.json())
     .then(shrine => {
