@@ -1,4 +1,5 @@
 # Frontend for Shrinelords
+### by Jin Ai Yap and [https://github.com/downstatic/]Chris Stull
 Live demo available at http://shrinelords.herokuapp.com.
 Backend repo here: https://github.com/yapjinai/shrinelords-backend
 ## The spiritual and digital merge in this technopagan haven: build and meditate in virtual shrines set in simulated nature.
